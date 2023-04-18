@@ -1,0 +1,71 @@
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 70px;
+	width: 100%;
+	padding: 0 30px;
+	background-color: var(--background-color1);
+	position: fixed;
+	z-index: 100;
+	box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
+}
+
+.trademark, 
+.search,
+.info {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo {
+	font-size: 27px;
+	font-weight: 600;
+	color: rgb(47, 141, 70);
+}
+
+.search input {
+	width: 250px;
+	height: 42px;
+	border-radius: 50px 0 0 50px;
+	background-color: var(--background-color3);
+	padding: 0 20px;
+	font-size: 15px;
+	outline: none;
+	border: none;
+}
+
+.search-btn {
+	width: 50px;
+	height: 42px;
+	color: #fff;
+	font-size: 20px;
+	border-radius: 0px 50px 50px 0px;
+	background-color: var(--secondary-color);
+	cursor: pointer;
+}
+
+.role-name {
+	height: 35px;
+	width: 90px;
+	margin-right: 10px;
+	border-radius: 8px;
+	background-color: #09914f;
+	color: white;
+	font-size: 15px;
+	border: none;
+	cursor: pointer;
+}
+
+.avatar {
+	height: 40px;
+	width: 40px;
+	background-color: #626262;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.img-avatar {
+	height: 42px;
+}
