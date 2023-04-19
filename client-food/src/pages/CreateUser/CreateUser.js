@@ -1,19 +1,21 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import classNames from 'classnames/bind';
 
-import styles from './Register.module.scss';
+import styles from './CreateUser.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Register() {
+function CreateUser() {
+    const navigate = useNavigate();
+
     const [username, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate(); // su dung de chuyen trang
+    const [role, setRole] = useState('');
 
     const handleChangeUserName = (event) => {
         setUserName(event.target.value);
@@ -27,25 +29,29 @@ function Register() {
         setPassword(event.target.value);
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault(); // ngan chan submit form load lai trang
-        const response = await axios.post('api/auth/register', {
+    const handleChangeRole = (event) => {
+        setRole(event.target.value);
+    };
+
+    const handleSubmitAddUser = async (event) => {
+        event.preventDefault();
+        const response = await axios.post('auth/admin/user/create', {
             username: username,
             email: email,
             password: password,
+            role: role,
         });
 
         if (response.status === 200) {
-            alert(`${username} đã đăng ký tài khoản thành công`);
-            navigate('/login');
+            alert(`Tạo tài khoản ${username.toUpperCase()} thành công`);
+            navigate('/admin');
         }
     };
-
     return (
         <div className={cx('wrapper')}>
             <div className={cx('form-box')}>
-                <form onSubmit={handleSubmit}>
-                    <h2>Đăng ký</h2>
+                <form>
+                    <h2>Create User</h2>
                     <div className={cx('input-box')}>
                         <input
                             type="text"
@@ -53,7 +59,7 @@ function Register() {
                             value={username}
                             onChange={handleChangeUserName}
                         />
-                        <label>Tên tài khoản</label>
+                        <label>Username</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faUser} />
                     </div>
                     <div className={cx('input-box')}>
@@ -68,19 +74,26 @@ function Register() {
                             value={password}
                             onChange={handleChangePassword}
                         />
-                        <label>Mật khẩu</label>
+                        <label>Password</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faLock} />
                     </div>
-                    <button className={cx('login-btn')}>Đăng ký</button>
-                    <div className={cx('login')}>
-                        <p>
-                            Nếu bạn đã có tài khoản <Link to="/login">Đăng nhập ngay!</Link>
-                        </p>
+                    <div className={cx('input-box')}>
+                        <select
+                            className={cx('select-option')}
+                            value={role}
+                            onChange={handleChangeRole}
+                        >
+                            <option value="Customer">Customer</option>
+                            <option value="Supporter">Supporter</option>
+                        </select>
                     </div>
+                    <button className={cx('create-btn')} onClick={handleSubmitAddUser}>
+                        Create
+                    </button>
                 </form>
             </div>
         </div>
     );
 }
 
-export default Register;
+export default CreateUser;

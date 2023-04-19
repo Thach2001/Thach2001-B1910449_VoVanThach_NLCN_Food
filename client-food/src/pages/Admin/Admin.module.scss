@@ -49,10 +49,14 @@
 	width: 90px;
 	border-radius: 8px;
 	background-color: #5500cb;
-	color: white;
 	font-size: 15px;
 	border: none;
 	cursor: pointer;
+}
+
+.create-btn > a {
+	color: white;
+	padding: 20px;
 }
 
 .report-body {
@@ -68,12 +72,6 @@
 	align-items: center;
 }
 
-.img-user {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-}
-
 .items {
 	width: 1120px;
 	margin-top: 15px;
@@ -86,19 +84,19 @@
 	align-items: center;
 }
 
-.t-op-nextlvl {
+.item-content {
 	font-size: 14px;
 	letter-spacing: 0px;
 	font-weight: 600;
 }
 
-.handle {
+.handle,
+.handle > a {
 	border: none;
 	border-radius: 5px;
 	padding: 5px;
-	color: white;
 	cursor: pointer;
-
+	color: white;
 }
 
 .edit-btn {
