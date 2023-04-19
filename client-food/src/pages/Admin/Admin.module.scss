@@ -62,7 +62,7 @@
 .report-body {
 	max-width: 1160px;
 	overflow-x: auto;
-	padding: 20px;
+	padding: 20px 0px;
 }
 
 .report-topic {
@@ -70,6 +70,16 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.th-report {
+	text-align: center;
+	flex: 1;
+}
+
+.th-report-email,
+.th-report-createdAt {
+	flex: 2;
 }
 
 .items {
@@ -88,6 +98,13 @@
 	font-size: 14px;
 	letter-spacing: 0px;
 	font-weight: 600;
+	text-align: center;
+	flex: 1;
+}
+
+.item-content-email,
+.item-content-createdAt {
+	flex: 2;
 }
 
 .handle,

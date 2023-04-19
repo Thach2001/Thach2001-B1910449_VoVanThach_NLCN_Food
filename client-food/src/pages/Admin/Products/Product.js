@@ -51,12 +51,14 @@ function AdminProduct() {
                     </div>
                     <div className={cx('report-body')}>
                         <div className={cx('report-topic')}>
-                            <h3>Name</h3>
-                            <h3>Image</h3>
-                            <h3>Description</h3>
-                            <h3>Price</h3>
-                            <h3>CreateAt</h3>
-                            <h3>Handle</h3>
+                            <h3 className={cx('th-report')}>Name</h3>
+                            <h3 className={cx('th-report')}>Image</h3>
+                            <h3 className={cx('th-report', 'th-report-description')}>
+                                Description
+                            </h3>
+                            <h3 className={cx('th-report')}>Price</h3>
+                            <h3 className={cx('th-report', 'th-report-createdAt')}>CreatedAt</h3>
+                            <h3 className={cx('th-report')}>Handle</h3>
                         </div>
                         {products.map((product) => {
                             return (
@@ -70,11 +72,20 @@ function AdminProduct() {
                                                 alt="product"
                                             />
                                         </h3>
-                                        <h3 className={cx('item-content')}>
+                                        <h3
+                                            className={cx(
+                                                'item-content',
+                                                'tem-content-description',
+                                            )}
+                                        >
                                             {product.description}
                                         </h3>
                                         <h3 className={cx('item-content')}>{product.price}</h3>
-                                        <h3 className={cx('item-content')}>{product.createdAt}</h3>
+                                        <h3
+                                            className={cx('item-content', 'item-content-createdAt')}
+                                        >
+                                            {product.createdAt}
+                                        </h3>
                                         <h3 className={cx('item-content')}>
                                             <button className={cx('edit-btn', 'handle')}>
                                                 <Link to={`/admin/product/edit/${product._id}`}>

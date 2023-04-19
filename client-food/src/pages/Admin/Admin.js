@@ -50,20 +50,26 @@ function Admin() {
                     </div>
                     <div className={cx('report-body')}>
                         <div className={cx('report-topic')}>
-                            <h3>Username</h3>
-                            <h3>Email</h3>
-                            <h3>Role</h3>
-                            <h3>CreateAt</h3>
-                            <h3>Handle</h3>
+                            <h3 className={cx('th-report')}>Username</h3>
+                            <h3 className={cx('th-report', 'th-report-email')}>Email</h3>
+                            <h3 className={cx('th-report')}>Role</h3>
+                            <h3 className={cx('th-report', 'th-report-createdAt')}>CreatedAt</h3>
+                            <h3 className={cx('th-report')}>Handle</h3>
                         </div>
                         {users.map((user) => {
                             return (
                                 <div className={cx('items')} key={user._id}>
                                     <div className={cx('item1')}>
                                         <h3 className={cx('item-content')}>{user.username}</h3>
-                                        <h3 className={cx('item-content')}>{user.email}</h3>
+                                        <h3 className={cx('item-content', 'item-content-email')}>
+                                            {user.email}
+                                        </h3>
                                         <h3 className={cx('item-content')}>{user.role}</h3>
-                                        <h3 className={cx('item-content')}>11:38 PM 4/18/2023</h3>
+                                        <h3
+                                            className={cx('item-content', 'item-content-createdAt')}
+                                        >
+                                            {user.createdAt}
+                                        </h3>
                                         <h3 className={cx('item-content')}>
                                             <button className={cx('edit-btn', 'handle')}>
                                                 <Link to={`/user/edit/${user._id}`}>Edit</Link>
