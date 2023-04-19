@@ -14,10 +14,12 @@ const getListProduct = async (req, res) => {
 const postProduct = (req, res) => {
    try {
       // save data to user collection
-      const { name, description } = req.body;
+      const { name, image, description, price } = req.body;
       productModel.create({
          name: name,
+         image: image,
          description: description,
+         price: price,
       });
       return res.status(200).send("create product success");
    } catch (error) {

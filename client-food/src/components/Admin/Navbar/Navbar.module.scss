@@ -52,10 +52,13 @@ header {
 	margin-right: 10px;
 	border-radius: 8px;
 	background-color: #09914f;
-	color: white;
 	font-size: 15px;
 	border: none;
 	cursor: pointer;
+}
+
+.role-name > a {
+	color: white;
 }
 
 .avatar {
