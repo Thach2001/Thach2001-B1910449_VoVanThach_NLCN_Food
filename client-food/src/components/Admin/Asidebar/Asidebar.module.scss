@@ -1,6 +1,6 @@
 .wrapper {
 	height: calc(100vh - 70px);
-	width: 250px;
+	width: 300px;
 	position: relative;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -44,8 +44,11 @@
 	font-size: 20px;
 	border: none;
 	background-color: transparent;
+	cursor: pointer;
+	margin-right: 25px;
 }
 
 .content > a {
 	color: black;
+	padding: 15px 0;
 }

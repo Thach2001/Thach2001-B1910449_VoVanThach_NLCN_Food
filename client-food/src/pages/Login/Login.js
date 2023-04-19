@@ -46,7 +46,7 @@ function LoginPage() {
 
             // navigate to admin page or home page
             if (userLogin.role === 'admin') {
-                navigate('/admin');
+                navigate('/admin/user');
             } else {
                 navigate('/home');
             }
@@ -59,7 +59,13 @@ function LoginPage() {
                 <form onSubmit={handleSubmitLogin}>
                     <h2>Đăng nhập</h2>
                     <div className={cx('input-box')}>
-                        <input type="email" required value={useInput.email} name="email" onChange={handleChangeInput} />
+                        <input
+                            type="email"
+                            required
+                            value={useInput.email}
+                            name="email"
+                            onChange={handleChangeInput}
+                        />
                         <label>Email</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faEnvelope} />
                     </div>

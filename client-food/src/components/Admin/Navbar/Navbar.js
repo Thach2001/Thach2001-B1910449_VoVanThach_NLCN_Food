@@ -38,7 +38,7 @@ function Navbar() {
     return (
         <header>
             <div className={cx('trademark')}>
-                <div className={cx('logo')}>FastFood</div>
+                <div className={cx('logo')}>FOODStore</div>
             </div>
 
             <div className={cx('search')}>

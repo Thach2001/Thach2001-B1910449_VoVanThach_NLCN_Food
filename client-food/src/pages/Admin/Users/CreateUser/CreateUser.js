@@ -44,7 +44,7 @@ function CreateUser() {
 
         if (response.status === 200) {
             alert(`Tạo tài khoản ${username.toUpperCase()} thành công`);
-            navigate('/admin');
+            navigate('/admin/user');
         }
     };
     return (

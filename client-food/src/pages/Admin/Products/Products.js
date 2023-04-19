@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import classNames from 'classnames/bind';
 
-import styles from './Product.module.scss';
+import styles from './Products.module.scss';
 import AdminLayout from '~/layouts/AdminLayout';
 
 const cx = classNames.bind(styles);
 
-function AdminProduct() {
+function Products() {
     const dispatch = useDispatch();
     const products = useSelector(function (state) {
         return state.product;
@@ -110,4 +110,4 @@ function AdminProduct() {
     );
 }
 
-export default AdminProduct;
+export default Products;

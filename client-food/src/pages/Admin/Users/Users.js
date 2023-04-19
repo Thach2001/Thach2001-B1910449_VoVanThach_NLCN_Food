@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import classNames from 'classnames/bind';
 
-import styles from './Admin.module.scss';
+import styles from './Users.module.scss';
 import AdminLayout from '~/layouts/AdminLayout';
 
 const cx = classNames.bind(styles);
 
-function Admin() {
+function Users() {
     const dispatch = useDispatch();
     const users = useSelector(function (state) {
         return state.user;
@@ -38,6 +38,7 @@ function Admin() {
         });
         alert(`Bạn đã xóa tài khoản thành công`);
     };
+
     return (
         <AdminLayout>
             <div className={cx('wrapper')}>
@@ -92,4 +93,4 @@ function Admin() {
     );
 }
 
-export default Admin;
+export default Users;
