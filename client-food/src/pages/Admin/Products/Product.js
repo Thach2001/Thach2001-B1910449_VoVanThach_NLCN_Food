@@ -65,7 +65,7 @@ function AdminProduct() {
                                         <h3 className={cx('item-content')}>{product.name}</h3>
                                         <h3 className={cx('item-content')}>
                                             <img
-                                                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+                                                src={product.image}
                                                 className={cx('img-product')}
                                                 alt="product"
                                             />

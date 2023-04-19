@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosCommon = () => {
-    axios.defaults.baseURL = 'http://localhost:5000';
+    axios.defaults.baseURL = 'http://localhost:3000';
 
     // khi gap bat ki axios nao, no se thay doi config header va lay token moi nhat
     // Add a request interceptor

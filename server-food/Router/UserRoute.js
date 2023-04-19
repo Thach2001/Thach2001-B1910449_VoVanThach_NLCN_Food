@@ -4,7 +4,7 @@ const userController = require("../Controllers/UserController");
 const authMiddleware = require("../Middleware/AuthMiddleware");
 
 // event http listener
-// Khi goi den http://localhost:5000/auth/admin/user thi middleware hoat dong, khi next() thi moi goi toi getListUser
+// Khi goi den http://localhost:3000/auth/admin/user thi middleware hoat dong, khi next() thi moi goi toi getListUser
 router.get(
    "/user",
    [authMiddleware.isAuthentication],
