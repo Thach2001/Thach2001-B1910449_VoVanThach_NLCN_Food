@@ -36,7 +36,7 @@ function Navbar() {
     }, []); // []: chi chay 1 lan duy nhat khi return chay xong
 
     return (
-        <header>
+        <header className={cx('header')}>
             <div className={cx('trademark')}>
                 <div className={cx('logo')}>FOODStore</div>
             </div>
