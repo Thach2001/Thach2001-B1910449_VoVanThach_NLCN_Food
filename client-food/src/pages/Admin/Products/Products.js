@@ -39,6 +39,11 @@ function Products() {
         alert(`Bạn đã xóa sản phẩm thành công`);
     };
 
+    const time = (timestamp) => {
+        const date = new Date(timestamp);
+        return date.toLocaleString();
+    };
+
     return (
         <AdminLayout>
             <div className={cx('wrapper')}>
@@ -80,11 +85,16 @@ function Products() {
                                         >
                                             {product.description}
                                         </h3>
-                                        <h3 className={cx('item-content')}>{product.price}</h3>
+                                        <h3 className={cx('item-content')}>
+                                            {product.price
+                                                .toString()
+                                                .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
+                                            đồng
+                                        </h3>
                                         <h3
                                             className={cx('item-content', 'item-content-createdAt')}
                                         >
-                                            {product.createdAt}
+                                            {time(product.createdAt)}
                                         </h3>
                                         <h3 className={cx('item-content')}>
                                             <button className={cx('edit-btn', 'handle')}>

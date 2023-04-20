@@ -39,6 +39,11 @@ function Users() {
         alert(`Bạn đã xóa tài khoản thành công`);
     };
 
+    const time = (timestamp) => {
+        const date = new Date(timestamp);
+        return date.toLocaleString();
+    };
+
     return (
         <AdminLayout>
             <div className={cx('wrapper')}>
@@ -69,7 +74,7 @@ function Users() {
                                         <h3
                                             className={cx('item-content', 'item-content-createdAt')}
                                         >
-                                            {user.createdAt}
+                                            {time(user.createdAt)}
                                         </h3>
                                         <h3 className={cx('item-content')}>
                                             <button className={cx('edit-btn', 'handle')}>
