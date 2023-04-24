@@ -78,14 +78,8 @@ function EditProduct(props) {
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faPizzaSlice} />
                     </div>
                     <div className={cx('input-box')}>
-                        <input
-                            type="text"
-                            required
-                            name="image"
-                            value={updateProduct.image}
-                            onChange={handleChange}
-                        />
-                        <label>Image</label>
+                        <input type="file" accept=".jpg, .png" required />
+                        <img src={updateProduct.image} alt="trai cay" />
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faImage} />
                     </div>
                     <div className={cx('input-box')}>

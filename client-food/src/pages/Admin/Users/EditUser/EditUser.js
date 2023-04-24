@@ -41,7 +41,7 @@ function EditUser(props) {
         async function updateUserId() {
             try {
                 await axios.put(`auth/admin/user/edit/${updateUser._id}`, updateUser);
-                navigate('/admin');
+                navigate('/admin/user');
             } catch (error) {
                 console.log(error);
             }
@@ -57,7 +57,7 @@ function EditUser(props) {
     }
 
     function handleCancel() {
-        navigate('/admin');
+        navigate('/admin/user');
     }
     return (
         <div className={cx('wrapper')}>

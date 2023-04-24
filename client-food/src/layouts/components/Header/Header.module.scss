@@ -192,3 +192,48 @@
     color: #fff;
     background-color: var(--orange);
 }
+
+.account {
+    position: absolute;
+    top: 110%;
+    right: 60px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    width: 200px;
+    background-color: #edebeb;
+}
+
+.account .account-btn {
+    display: flex;
+    margin-top: 10px;
+    display: block;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--black);
+    color: var(--black);
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.account-btn:hover {
+    color: #fff;
+    background-color: var(--orange);
+}
+
+.account .account-btn a {
+    color: black;
+}
+
+.icon-singin, 
+.icon-register,
+.icon-singout {
+    margin-right: 10px;
+}
+
+.icon-register {
+    margin-left: -20px;
+}

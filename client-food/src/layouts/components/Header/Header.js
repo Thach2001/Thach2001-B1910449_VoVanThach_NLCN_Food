@@ -1,24 +1,34 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faBars,
+    faRegistered,
     faSearch,
     faShoppingBasket,
     faShoppingCart,
+    faSignIn,
+    faSignOut,
     faTrash,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Header() {
-    const [toggleSearch, setToggleSearch] = useState(true);
+    const [toggleSearch, setToggleSearch] = useState(false);
 
-    const [toggleShoppingCart, setToggleShoppingCart] = useState(true);
+    const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
 
+    const [toggleAccount, setToggleAccount] = useState(false);
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem('accessToken');
+        navigate('/login');
+    };
     return (
         <div className={cx('wrapper')}>
             <header className={cx('header')}>
@@ -27,7 +37,7 @@ function Header() {
                     FoodStore
                 </Link>
                 <nav className={cx('navbar')}>
-                    <Link to="/home">Home</Link>
+                    <Link to="/">Home</Link>
                     <Link to="/features">Features</Link>
                     <Link to="/products">Products</Link>
                     <Link to="/categories">Categories</Link>
@@ -35,9 +45,6 @@ function Header() {
                     <Link to="/blog">Blog</Link>
                 </nav>
                 <div className={cx('icons')}>
-                    <div className={cx('icon-btn', 'icon-menu')}>
-                        <FontAwesomeIcon icon={faBars} />
-                    </div>
                     <div className={cx('icon-btn')} onClick={() => setToggleSearch(!toggleSearch)}>
                         <FontAwesomeIcon icon={faSearch} />
                     </div>
@@ -47,7 +54,10 @@ function Header() {
                     >
                         <FontAwesomeIcon icon={faShoppingCart} />
                     </div>
-                    <div className={cx('icon-btn')}>
+                    <div
+                        className={cx('icon-btn')}
+                        onClick={() => setToggleAccount(!toggleAccount)}
+                    >
                         <FontAwesomeIcon icon={faUser} />
                     </div>
                 </div>
@@ -115,6 +125,31 @@ function Header() {
                         </div>
                         <div className={cx('total')}>total: 150.000 dong</div>
                         <Link className={cx('checkout-btn')}>Thanh toán</Link>
+                    </div>
+                )}
+                {toggleAccount && (
+                    <div className={cx('account')}>
+                        <div className={cx('account-btn')}>
+                            <FontAwesomeIcon
+                                className={cx('icon-singin')}
+                                icon={faSignIn}
+                            ></FontAwesomeIcon>
+                            <Link to="/login">Đăng nhập</Link>
+                        </div>
+                        <div className={cx('account-btn')}>
+                            <FontAwesomeIcon
+                                className={cx('icon-register')}
+                                icon={faRegistered}
+                            ></FontAwesomeIcon>
+                            <Link to="/register">Đăng ký</Link>
+                        </div>
+                        <div className={cx('account-btn')} onClick={handleLogout}>
+                            <FontAwesomeIcon
+                                className={cx('icon-singout')}
+                                icon={faSignOut}
+                            ></FontAwesomeIcon>
+                            <Link>Đăng xuất</Link>
+                        </div>
                     </div>
                 )}
             </header>
