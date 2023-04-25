@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPieChart, faSignOut, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faPieChart, faSignOut, faUsers } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
 import styles from './Asidebar.module.scss';
@@ -17,6 +17,16 @@ function Asidebar() {
     return (
         <div className={cx('wrapper')}>
             <nav className={cx('nav')}>
+                <div className={cx('nav-option')}>
+                    <h3 className={cx('content')}>
+                        <Link to="/">
+                            <button className={cx('btn-icon')}>
+                                <FontAwesomeIcon icon={faHome} />
+                            </button>
+                            Home
+                        </Link>
+                    </h3>
+                </div>
                 <div className={cx('nav-option')}>
                     <h3 className={cx('content')}>
                         <Link to="/admin/user">

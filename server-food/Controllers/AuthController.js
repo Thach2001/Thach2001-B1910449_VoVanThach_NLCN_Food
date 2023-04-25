@@ -57,7 +57,7 @@ const login = async (req, res) => {
       },
       process.env.SECRET_JWT,
       {
-         expiresIn: 3600, // 60 phut se out ra
+         expiresIn: 7200, // 120 phut se out ra
       }
    );
 
