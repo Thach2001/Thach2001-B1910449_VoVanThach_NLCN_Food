@@ -5,11 +5,11 @@ import { faDollar, faImage, faPen, faPizzaSlice } from '@fortawesome/free-solid-
 import axios from 'axios';
 import classNames from 'classnames/bind';
 
-import styles from './EditProduct.module.scss';
+import styles from './UpdateProduct.module.scss';
 
 const cx = classNames.bind(styles);
 
-function EditProduct(props) {
+function UpdateProduct(props) {
     const navigate = useNavigate();
     // Lay id tu url
     const { _id } = useParams();
@@ -63,10 +63,10 @@ function EditProduct(props) {
 
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('form-box')}>
+            <div className={cx('form-update-product')}>
                 <form onSubmit={handleSubmitUpdateProduct}>
                     <h2>Update Product</h2>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="text"
                             required
@@ -77,12 +77,12 @@ function EditProduct(props) {
                         <label>Name</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faPizzaSlice} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input type="file" accept=".jpg, .png" required />
                         <img src={updateProduct.image} alt="trai cay" />
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faImage} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="text"
                             required
@@ -93,7 +93,7 @@ function EditProduct(props) {
                         <label>Description</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faPen} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="text"
                             required
@@ -107,7 +107,7 @@ function EditProduct(props) {
                     <button type="submit" className={cx('update-btn')}>
                         Update
                     </button>
-                    <button className={cx('update-btn')} onClick={handleCancel}>
+                    <button className={cx('cancel-btn')} onClick={handleCancel}>
                         Cancel
                     </button>
                 </form>
@@ -116,4 +116,4 @@ function EditProduct(props) {
     );
 }
 
-export default EditProduct;
+export default UpdateProduct;

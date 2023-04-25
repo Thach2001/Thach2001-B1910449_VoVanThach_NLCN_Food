@@ -50,12 +50,16 @@ function CreateProduct() {
         }
     };
 
+    function handleCancel() {
+        navigate('/admin/product');
+    }
+
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('form-box')}>
+            <div className={cx('form-create-product')}>
                 <form>
                     <h2>Create Product</h2>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="text"
                             required
@@ -65,7 +69,7 @@ function CreateProduct() {
                         <label>Name</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faPizzaSlice} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="file"
                             accept=".jpg, .png"
@@ -75,7 +79,7 @@ function CreateProduct() {
                         <img src={image} alt="trai cay" />
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faImage} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="text"
                             required
@@ -85,7 +89,7 @@ function CreateProduct() {
                         <label>Description</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faPen} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="text"
                             required
@@ -97,6 +101,9 @@ function CreateProduct() {
                     </div>
                     <button className={cx('create-btn')} onClick={handleSubmitAddProduct}>
                         Create
+                    </button>
+                    <button className={cx('cancel-btn')} onClick={handleCancel}>
+                        Cancel
                     </button>
                 </form>
             </div>

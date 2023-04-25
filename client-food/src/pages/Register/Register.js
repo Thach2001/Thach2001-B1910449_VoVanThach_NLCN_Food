@@ -13,7 +13,7 @@ function Register() {
     const [username, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate(); // su dung de chuyen trang
+    const navigate = useNavigate();
 
     const handleChangeUserName = (event) => {
         setUserName(event.target.value);
@@ -28,7 +28,7 @@ function Register() {
     };
 
     const handleSubmit = async (event) => {
-        event.preventDefault(); // ngan chan submit form load lai trang
+        event.preventDefault();
         const response = await axios.post('api/auth/register', {
             username: username,
             email: email,
@@ -43,10 +43,10 @@ function Register() {
 
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('form-box')}>
+            <div className={cx('form-register')}>
                 <form onSubmit={handleSubmit}>
                     <h2>Đăng ký</h2>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="text"
                             required
@@ -56,12 +56,12 @@ function Register() {
                         <label>Tên tài khoản</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faUser} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input type="email" required value={email} onChange={handleChangeEmail} />
                         <label>Email</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faEnvelope} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="password"
                             required
@@ -71,8 +71,8 @@ function Register() {
                         <label>Mật khẩu</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faLock} />
                     </div>
-                    <button className={cx('login-btn')}>Đăng ký</button>
-                    <div className={cx('login')}>
+                    <button className={cx('register-btn')}>Đăng ký</button>
+                    <div className={cx('login-btn')}>
                         <p>
                             Nếu bạn đã có tài khoản <Link to="/login">Đăng nhập ngay!</Link>
                         </p>

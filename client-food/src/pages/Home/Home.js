@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper';
 
@@ -39,14 +37,12 @@ function Home() {
             <section className={cx('home')}>
                 <div className={cx('content')}>
                     <h3>
-                        fresh and <span>organic</span> products for you
+                        Cung cấp thức ăn nhanh, rau củ và trái cây <span>sạch và organic</span> cho
+                        bạn
                     </h3>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        standard dummy text ever since the 1500s
-                    </p>
-                    <Link to="/" className={cx('shop-btn')}>
-                        shop now
+                    <p>Cung cấp thức ăn nhanh, rau củ và trái cây sạch và organic cho bạn</p>
+                    <Link to="/products" className={cx('shop-btn')}>
+                        Mua ngay
                     </Link>
                 </div>
             </section>
@@ -74,7 +70,7 @@ function Home() {
                                 slidesPerView: 2,
                             },
                             1024: {
-                                slidesPerView: 3,
+                                slidesPerView: 4,
                             },
                         }}
                         modules={[Pagination, Autoplay]}
@@ -86,16 +82,16 @@ function Home() {
                                     <SwiperSlide className={cx('box')} key={product._id}>
                                         <img src={product.image} alt="product" />
                                         <h3>{product.name}</h3>
-                                        <div className={cx('price')}>{product.price}</div>
-                                        <div className={cx('price')}>{product.description}</div>
-                                        <div className={cx('starts')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStarHalfAlt} />
+                                        <div className={cx('price')}>
+                                            {product.price
+                                                .toString()
+                                                .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
+                                            vnđ
                                         </div>
-                                        <Link className={cx('cart-btn')}>add to cart</Link>
+                                        <div className={cx('description')}>
+                                            {product.description}
+                                        </div>
+                                        <Link className={cx('cart-btn')}>Thêm vào giỏ hàng</Link>
                                     </SwiperSlide>
                                 );
                             })}
@@ -125,7 +121,7 @@ function Home() {
                                 slidesPerView: 2,
                             },
                             1024: {
-                                slidesPerView: 3,
+                                slidesPerView: 4,
                             },
                         }}
                         modules={[Pagination, Autoplay]}
@@ -137,16 +133,16 @@ function Home() {
                                     <SwiperSlide className={cx('box')} key={product._id}>
                                         <img src={product.image} alt="product" />
                                         <h3>{product.name}</h3>
-                                        <div className={cx('price')}>{product.price}</div>
-                                        <div className={cx('price')}>{product.description}</div>
-                                        <div className={cx('starts')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStarHalfAlt} />
+                                        <div className={cx('price')}>
+                                            {product.price
+                                                .toString()
+                                                .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
+                                            vnđ
                                         </div>
-                                        <Link className={cx('cart-btn')}>add to cart</Link>
+                                        <div className={cx('description')}>
+                                            {product.description}
+                                        </div>
+                                        <Link className={cx('cart-btn')}>Thêm vào giỏ hàng</Link>
                                     </SwiperSlide>
                                 );
                             })}

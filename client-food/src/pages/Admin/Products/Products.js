@@ -89,7 +89,7 @@ function Products() {
                                             {product.price
                                                 .toString()
                                                 .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
-                                            đồng
+                                            vnđ
                                         </h3>
                                         <h3
                                             className={cx('item-content', 'item-content-createdAt')}

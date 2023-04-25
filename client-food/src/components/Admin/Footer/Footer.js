@@ -7,7 +7,7 @@ function Footer() {
     return (
         <footer className={cx('wrapper')}>
             <strong>
-                Copyright © 2014-2021
+                Copyright © 2023
                 <a href="https://github.com/" target="blank">
                     {' '}
                     Vo Van Thach B1910449

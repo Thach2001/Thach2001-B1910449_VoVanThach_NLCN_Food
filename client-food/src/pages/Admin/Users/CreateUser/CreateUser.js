@@ -47,12 +47,17 @@ function CreateUser() {
             navigate('/admin/user');
         }
     };
+
+    function handleCancel() {
+        navigate('/admin/user');
+    }
+
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('form-box')}>
+            <div className={cx('form-create-user')}>
                 <form>
                     <h2>Create User</h2>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="text"
                             required
@@ -62,12 +67,12 @@ function CreateUser() {
                         <label>Username</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faUser} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input type="email" required value={email} onChange={handleChangeEmail} />
                         <label>Email</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faEnvelope} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="password"
                             required
@@ -77,7 +82,7 @@ function CreateUser() {
                         <label>Password</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faLock} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <select
                             className={cx('select-option')}
                             value={role}
@@ -89,6 +94,9 @@ function CreateUser() {
                     </div>
                     <button className={cx('create-btn')} onClick={handleSubmitAddUser}>
                         Create
+                    </button>
+                    <button className={cx('cancel-btn')} onClick={handleCancel}>
+                        Cancel
                     </button>
                 </form>
             </div>

@@ -28,11 +28,10 @@ function LoginPage() {
     };
 
     const handleSubmitLogin = async (event) => {
-        event.preventDefault(); // ngan chan submit form load lai trang
-        // call API login
+        event.preventDefault();
+
         const response = await axios.post('api/auth/login', useInput);
 
-        // save user login to store
         if (response.status === 200) {
             const accessToken = response.data.accessToken;
             const userLogin = jwtdecode(accessToken);
@@ -41,10 +40,8 @@ function LoginPage() {
                 payload: userLogin,
             });
 
-            // save jwt to local storage
             localStorage.setItem('accessToken', accessToken);
 
-            // navigate to admin page or home page
             if (userLogin.role === 'admin') {
                 navigate('/admin/user');
             } else {
@@ -55,10 +52,10 @@ function LoginPage() {
 
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('form-box')}>
+            <div className={cx('form-login')}>
                 <form onSubmit={handleSubmitLogin}>
                     <h2>Đăng nhập</h2>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="email"
                             required
@@ -69,7 +66,7 @@ function LoginPage() {
                         <label>Email</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faEnvelope} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="password"
                             required
@@ -82,7 +79,7 @@ function LoginPage() {
                     </div>
 
                     <button className={cx('login-btn')}>Đăng nhập</button>
-                    <div className={cx('register')}>
+                    <div className={cx('register-btn')}>
                         <p>
                             Nếu bạn chưa có tài khoản <Link to="/register">Đăng ký ngay!</Link>
                         </p>

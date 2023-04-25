@@ -5,11 +5,11 @@ import { faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import classNames from 'classnames/bind';
 
-import styles from './EditUser.module.scss';
+import styles from './UpdateUser.module.scss';
 
 const cx = classNames.bind(styles);
 
-function EditUser(props) {
+function UpdateUser(props) {
     const navigate = useNavigate();
     // Lay id tu url
     const { _id } = useParams();
@@ -59,12 +59,13 @@ function EditUser(props) {
     function handleCancel() {
         navigate('/admin/user');
     }
+
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('form-box')}>
+            <div className={cx('form-update-user')}>
                 <form onSubmit={handleSubmitUpdateUser}>
                     <h2>Update User</h2>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="text"
                             required
@@ -75,7 +76,7 @@ function EditUser(props) {
                         <label>Username</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faUser} />
                     </div>
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <input
                             type="email"
                             required
@@ -86,12 +87,12 @@ function EditUser(props) {
                         <label>Email</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faEnvelope} />
                     </div>
-                    {/* <div className={cx('input-box')}>
+                    {/* <div className={cx('form-group')}>
                         <input type="password" required name="password" value={updateUser.password} onChange={handleChange} />
                         <label>Mật khẩu</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faLock} />
                     </div> */}
-                    <div className={cx('input-box')}>
+                    <div className={cx('form-group')}>
                         <select
                             className={cx('select-option')}
                             name="role"
@@ -105,7 +106,7 @@ function EditUser(props) {
                     <button type="submit" className={cx('update-btn')}>
                         Update
                     </button>
-                    <button className={cx('update-btn')} onClick={handleCancel}>
+                    <button className={cx('cancel-btn')} onClick={handleCancel}>
                         Cancel
                     </button>
                 </form>
@@ -114,4 +115,4 @@ function EditUser(props) {
     );
 }
 
-export default EditUser;
+export default UpdateUser;

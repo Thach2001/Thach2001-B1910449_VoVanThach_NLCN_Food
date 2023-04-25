@@ -7,14 +7,14 @@ import Register from '~/pages/Register';
 
 import Admin from '~/pages/Admin/Users/index';
 import CreateUser from '~/pages/Admin/Users/CreateUser';
-import EditUser from '~/pages/Admin/Users/EditUser';
+import UpdateUser from '~/pages/Admin/Users/UpdateUser';
 
 import AdminProduct from '~/pages/Admin/Products';
 import CreateProduct from '~/pages/Admin/Products/CreateProduct';
-import EditProduct from '~/pages/Admin/Products/EditProduct';
+import UpdateProduct from '~/pages/Admin/Products/UpdateProduct';
 
 import Home from '~/pages/Home';
-import Following from '~/pages/Following';
+import Products from '~/pages/Products';
 import Upload from '~/pages/Upload';
 
 // Public routes
@@ -26,16 +26,16 @@ const publicRoutes = [
     // Users
     { path: '/admin/user', component: Admin, layout: null },
     { path: '/user/create', component: CreateUser, layout: null },
-    { path: '/user/edit/:_id', component: EditUser, layout: null },
+    { path: '/user/edit/:_id', component: UpdateUser, layout: null },
 
     // Products
     { path: '/admin/product', component: AdminProduct, layout: null },
     { path: '/admin/product/create', component: CreateProduct, layout: null },
-    { path: '/admin/product/edit/:_id', component: EditProduct, layout: null },
+    { path: '/admin/product/edit/:_id', component: UpdateProduct, layout: null },
 
     // Home
     { path: '/', component: Home },
-    { path: '/following', component: Following },
+    { path: '/products', component: Products },
     { path: '/upload', component: Upload, layout: HeaderOnly },
 ];
 
