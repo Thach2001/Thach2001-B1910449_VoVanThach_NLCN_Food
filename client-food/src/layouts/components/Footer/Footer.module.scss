@@ -1,25 +1,33 @@
 .wrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 50vh;
-    margin: 0 120px;
-    margin-top: -60px;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
 }
 
-.links h2 {
+.inner {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    margin: 30px 0 50px 0;
+    width: var(--default-layout-width);
+    padding: 0 var(--default-layout-horizontal-spacer);
+}
+
+.content h2 {
      position: relative;
      color: black;
      font-weight: 600;
      margin-bottom: 15px;
  }
  
-.links h2::before{
+.content h2::before{
      content: '';
      position: absolute;
      bottom: -5px;
      left: 0;
-     width: 50px;
+     width: 100px;
      height: 2px;
      background: #ff7800;
  }
@@ -27,34 +35,15 @@
 .links {
     position: relative;
     width: 15%;
-    margin-top: 85px;
  }
 
  .links ul li a{
     color: #999;
-    margin-bottom: 10px;
     display: inline-block;
  }
 
 .links ul li a:hover {
     color: #ff7800;
-}
-
-.about h2 {
-    position: relative;
-    color: black;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.about h2::before{
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background: #ff7800;
 }
 
 .social-icon {
@@ -75,23 +64,6 @@
 
 .social-icon li a:hover {
     background: orange;
-}
-
-.contact h2 {
-    position: relative;
-    color: black;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.contact h2::before{
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background: #f00;
 }
 
 .contact{

@@ -1,49 +1,37 @@
 .wrapper {
-    --orange: #ff7800;
-    --black: #130f40;
-    --light-color: #666;
-    --box-shadow: 0 5px 10px rgba(0,0,0,.1);
-    --border: 2px solid #rgba(0,0,0,.1);
-    --outline: 1px solid #rgba(0,0,0,.1);
-    --outline-hover: 2px solid var(--black);
-    
-    text-transform: capitalize;
-    transform: all 2s linear;
-
-    font-size: 62.5%;
-    overflow: hidden;
-    scroll-behavior: smooth;
-    scroll-padding-top: 70px;
-
-    background-color: #eee;
-}
-
-.header {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    z-index: 1000;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: var(--default-layout-header-height);
+    box-shadow: var(--box-shadow);
+    background-color: var(--white);
+}
+
+.inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 9%;
-    background-color: #fff;
-    box-shadow: var(--box-shadow);
+    height: 100%;
+    width: var(--default-layout-width);
+    padding: 0 var(--default-layout-horizontal-spacer);
 }
 
-.header .logo {
+.logo {
     font-size: 25px;
-    font-weight: bolder;
     color: var(--black);
+    font-weight: bolder;
 }
 
-.header .logo .icon-logo {
+.icon-logo {
     color: var(--orange)
 }
 
 .navbar a {
-    font-size: 17px;
+    font-size: 2rem;
     margin: 0 10px;
     color: var(--black);
 }
@@ -52,60 +40,54 @@
     color: var(--orange);
 }
 
-.icons {
+.actions {
     display: flex;
+    align-items: center;
 }
 
-.icons .icon-btn {
+.action-btn {
     height: 45px;
     width: 45px;
     line-height: 45px;
     border-radius: 5px;
-    background-color: #eee;
     color: var(--black);
+    background: none;
     font-size: 20px;
     margin-left: 3px;
     text-align: center;
     cursor: pointer;
-    background: none;
 }
 
-.icons .icon-btn:hover {
+.action-btn:hover {
+    color: var(--white);
     background-color: var(--orange);
-    color: #fff;
-}
-
-.icon-menu {
-    display: none;
 }
 
 .search-form {
     position: absolute;
     top: 110%;
     right: 20px;
-    width: 500px;
-    height: 50px;
-    background-color: #fff;
-    border-radius: 5px;
-    overflow: hidden;
     display: flex;
     align-items: center;
+    width: 500px;
+    height: 50px;
+    border-radius: 5px;
+    overflow: hidden;
     box-shadow: var(--box-shadow);
 }
 
-.search-form .search-box {
+.search-form input {
     height: 100%;
     width: 100%;
-    text-transform: none;
-    background: none;
-    border: none;
-    outline: none;
     font-size: 16px;
     padding: 0 15px;
+    background-color: #fff;
+    border: none;
+    outline: none;
 }
 
 .search-form label {
-    font-size: 20px;
+    font-size: 2rem;
     padding-right: 15px;
     color: var(--black);
     cursor: pointer;
@@ -115,96 +97,18 @@
     color: var(--orange)
 }
 
-.shopping-cart {
-    position: absolute;
-    top: 110%;
-    right: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: var(--box-shadow);
-    width: 400px;
-    background-color: #fff;
-}
-
-.shopping-cart .box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    position: relative;
-    margin: 10px 0;
-}
-
-.shopping-cart .box img {
-    height: auto;
-    width: 100px;
-}
-
-.shopping-cart .box .icon-trash {
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    cursor: pointer;
-    color: var(--light-color);
-    transform: translateY(-50%);
-}
-
-.shopping-cart .box .icon-trash:hover {
-    color: red;
-}
-
-.shopping-cart .box .content h3 {
-    color: var(--black);
-    font-size: 17px;
-    padding-bottom: 10px;
-}
-
-.shopping-cart .box .content span {
-    color: var(--light-color);
-    font-size: 16px;
-}
-
-.shopping-cart .box .content .quatily {
-    padding-left: 10px;
-}
-
-.total {
-    font-size: 25px;
-    padding: 10px 0;
-    text-align: center;
-    color: var(--black);
-}
-
-.checkout-btn {
-    margin-top: 10px;
-    display: block;
-    font-size: 20px;
-    padding: 8px 30px;
-    margin: 10px;
-    border-radius: 5px;
-    border: 2px solid var(--black);
-    color: var(--black);
-    text-align: center;
-    cursor: pointer;
-}
-
-.checkout-btn:hover {
-    color: #fff;
-    background-color: var(--orange);
-}
-
 .account {
     position: absolute;
     top: 110%;
     right: 60px;
+    width: 200px;
     padding: 10px;
     border-radius: 5px;
     box-shadow: var(--box-shadow);
-    width: 200px;
-    background-color: #edebeb;
+    background-color: #fff;
 }
 
-.account .account-btn {
+.account-btn {
     display: flex;
     margin-top: 10px;
     display: block;
@@ -224,7 +128,7 @@
     background-color: var(--orange);
 }
 
-.account .account-btn a {
+.account-btn a {
     color: black;
 }
 

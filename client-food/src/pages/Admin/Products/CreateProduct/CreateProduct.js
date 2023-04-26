@@ -22,9 +22,7 @@ function CreateProduct() {
     };
 
     const handleChangeProductImage = (event) => {
-        if (event.target.files && event.target.files[0]) {
-            setImage(URL.createObjectURL(event.target.files[0]));
-        }
+        setImage(event.target.value);
     };
 
     const handleChangeProductDescription = (event) => {
@@ -70,13 +68,20 @@ function CreateProduct() {
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faPizzaSlice} />
                     </div>
                     <div className={cx('form-group')}>
-                        <input
+                        {/* <input
                             type="file"
                             accept=".jpg, .png"
                             required
                             onChange={handleChangeProductImage}
                         />
-                        <img src={image} alt="trai cay" />
+                        <img src={image} alt="trai cay" /> */}
+                        <input
+                            type="text"
+                            required
+                            value={image}
+                            onChange={handleChangeProductImage}
+                        />
+                        <label>Image</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faImage} />
                     </div>
                     <div className={cx('form-group')}>

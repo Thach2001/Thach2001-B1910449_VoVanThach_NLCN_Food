@@ -1,0 +1,47 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    background: url('https://image.shutterstock.com/image-photo/image-260nw-391490764.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.inner {
+    text-align: center;
+}
+
+.inner h3 {
+    color: var(--black);
+    font-size: 30px;
+}
+
+.inner h3 span {
+    color: var(--orange);
+}
+
+.inner p {
+    color: var(--light-color);
+    font-size: 17px;
+    padding: 10px 0;
+    line-height: 1.8;
+}
+
+.shop-btn {
+    display: inline-block;
+    font-size: 20px;
+    padding: 8px 30px;
+    margin: 25px;
+    border-radius: 5px;
+    border: 2px solid var(--black);
+    color: var(--black);
+    text-align: center;
+    cursor: pointer;
+}
+
+.shop-btn:hover {
+    color: #fff;
+    background-color: var(--orange);
+}
