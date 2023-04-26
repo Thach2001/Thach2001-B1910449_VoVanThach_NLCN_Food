@@ -38,7 +38,7 @@ function Header() {
                 </Link>
                 <nav className={cx('navbar')}>
                     <Link to="/">Home</Link>
-                    <Link to="/features">Features</Link>
+                    <Link to="/cart">Cart</Link>
                     <Link to="/products">Products</Link>
                     <Link to="/categories">Categories</Link>
                     <Link to="/review">Review</Link>

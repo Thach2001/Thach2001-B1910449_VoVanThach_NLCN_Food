@@ -99,7 +99,7 @@ function Home() {
                     </Swiper>
                 </div>
 
-                <h1 className={cx('heading')}>
+                {/* <h1 className={cx('heading')}>
                     <span>Trái cây</span>
                 </h1>
                 <div className={cx('product-slider')}>
@@ -148,7 +148,7 @@ function Home() {
                             })}
                         </div>
                     </Swiper>
-                </div>
+                </div> */}
             </section>
         </div>
     );

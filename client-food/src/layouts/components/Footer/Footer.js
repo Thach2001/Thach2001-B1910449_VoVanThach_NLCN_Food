@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames/bind';
-import styles from './Footer.module.scss';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone, faSchool } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames/bind';
+import styles from './Footer.module.scss';
 
 const cx = classNames.bind(styles);
 
