@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 // config store redux
 import store from './store/store';
 
-// ser up axios default
+// set up axios default
 import axiosConfigCommon from './config/axiosConfigCommon';
 axiosConfigCommon();
 

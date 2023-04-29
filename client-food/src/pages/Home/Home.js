@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
 import LandingPage from '~/components/LandingPage/LandingPage';
+
+import { addToCart } from '../../actions/cart';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -30,6 +31,12 @@ function Home() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    // add products to cart
+    const handleAddToCart = (product) => {
+        console.log(product);
+        dispatch(addToCart(product));
+    };
+
     return (
         <div className={cx('wrapper')}>
             <LandingPage />
@@ -39,33 +46,23 @@ function Home() {
                 </h1>
                 <div className={cx('products')}>
                     {products.map((product) => (
-                        <div className={cx('product-box')} key={product._id}>
-                            <img src={product.image} alt={product.name} />
-                            <h3>{product.name}</h3>
-                            <div className={cx('price')}>
-                                {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')} vnđ
-                            </div>
-                            <div className={cx('description')}>{product.description}</div>
-                            <Link className={cx('cart-btn')}>Thêm vào giỏ hàng</Link>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            <div className={cx('inner')}>
-                <h1 className={cx('heading')}>
-                    <span>Rau củ</span>
-                </h1>
-                <div className={cx('products')}>
-                    {products.map((product) => (
-                        <div className={cx('product-box')} key={product._id}>
-                            <img src={product.image} alt={product.name} />
-                            <h3>{product.name}</h3>
-                            <div className={cx('price')}>
-                                {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')} vnđ
-                            </div>
-                            <div className={cx('description')}>{product.description}</div>
-                            <Link className={cx('cart-btn')}>Thêm vào giỏ hàng</Link>
-                        </div>
+                        <ul className={cx('product-box')} key={product._id}>
+                            <li>
+                                <img src={product.image} alt={product.name} />
+                                <h3>{product.name}</h3>
+                                <div className={cx('price')}>
+                                    {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
+                                    vnđ
+                                </div>
+                                <div className={cx('description')}>{product.description}</div>
+                                <button
+                                    className={cx('cart-btn')}
+                                    onClick={handleAddToCart(product)}
+                                >
+                                    Thêm vào giỏ hàng
+                                </button>
+                            </li>
+                        </ul>
                     ))}
                 </div>
             </div>

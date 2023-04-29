@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 function HeaderOnly({ children }) {
     return (
-        <div>
+        <div className={cx('wrapper')}>
             <Header />
             <div className={cx('container')}>
                 <div className={cx('content')}>{children}</div>
