@@ -57,7 +57,7 @@ function Home() {
                                 <div className={cx('description')}>{product.description}</div>
                                 <button
                                     className={cx('cart-btn')}
-                                    onClick={handleAddToCart(product)}
+                                    onClick={() => handleAddToCart(product)}
                                 >
                                     Thêm vào giỏ hàng
                                 </button>

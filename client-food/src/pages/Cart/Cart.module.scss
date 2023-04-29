@@ -1,5 +1,5 @@
 .wrapper {
-    height: 600px;
+    height: auto;
 }
 
 .heading {
@@ -52,6 +52,10 @@ tr th:nth-child(5) {
     width: 15%;
 }
 
+tr th:nth-child(6) {
+    width: 10%;
+}
+
 .remove-btn {
     color: var(--white);
     background: var(--primary);
@@ -85,9 +89,30 @@ tr th:nth-child(5) {
     color: var(--white);
     background-color: var(--orange);
     padding: 15px;
-    width: 150px;
     border-radius: 5px;
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+.no-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.add-product {
+    font-size: 2rem;
+    font-weight: 600;
+    background-color: var(--orange);
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.add-product a {
+    color: var(--white);
 }

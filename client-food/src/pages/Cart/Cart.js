@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { removeFromCart, adjustQuantity } from '../../actions/cart';
@@ -33,18 +34,18 @@ function Cart() {
                 {cartItems.length > 0 ? (
                     <>
                         <table className={cx('cart-table')}>
-                            <tr>
-                                <th>Tên sản phẩm</th>
-                                <th>Hình ảnh</th>
-                                <th>Mô tả</th>
-                                <th>Số lượng</th>
-                                <th>Giá</th>
-                                <th>Xử lý</th>
-                            </tr>
-                            <tr>
+                            <tbody>
+                                <tr>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Mô tả</th>
+                                    <th>Số lượng</th>
+                                    <th>Giá</th>
+                                    <th>Xử lý</th>
+                                </tr>
                                 {cartItems.map((item) => (
-                                    <>
-                                        <td key={item._id}>{item.name}</td>
+                                    <tr key={item._id}>
+                                        <td>{item.name}</td>
                                         <td>
                                             <img
                                                 className={cx('img')}
@@ -60,7 +61,7 @@ function Cart() {
                                                 value={item.quantity}
                                                 min="1"
                                                 onChange={(e) =>
-                                                    handleChangeQuantity(item.id, e.target.value)
+                                                    handleChangeQuantity(item._id, e.target.value)
                                                 }
                                             />
                                         </td>
@@ -73,14 +74,14 @@ function Cart() {
                                         <td>
                                             <button
                                                 className={cx('remove-btn')}
-                                                onClick={() => handleRemoveFromCart(item.id)}
+                                                onClick={() => handleRemoveFromCart(item._id)}
                                             >
                                                 <FontAwesomeIcon icon={faTrash} /> Xóa
                                             </button>
                                         </td>
-                                    </>
+                                    </tr>
                                 ))}
-                            </tr>
+                            </tbody>
                         </table>
                         <div className={cx('total-checkout')}>
                             <p className={cx('total-price')}>
@@ -98,7 +99,9 @@ function Cart() {
                 ) : (
                     <div className={cx('no-cart')}>
                         <p>Không có sản phẩm trong giỏ hàng</p>
-                        <button>Thêm sản phẩm</button>
+                        <button className={cx('add-product')}>
+                            <Link to="/">Thêm sản phẩm</Link>
+                        </button>
                     </div>
                 )}
             </div>

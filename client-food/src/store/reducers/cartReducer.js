@@ -5,11 +5,11 @@ const initialState = [];
 // Hàm xử lý thêm sản phẩm vào giỏ hàng
 const addToCart = (state, product) => {
     // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa?
-    const existingItem = state.find((item) => item.id === product.id);
+    const existingItem = state.find((item) => item._id === product._id);
     if (existingItem) {
         // Nếu đã có rồi thì tăng số lượng lên 1
         return state.map((item) =>
-            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item,
+            item._id === product._id ? { ...item, quantity: item.quantity + 1 } : item,
         );
     } else {
         // Nếu chưa có thì thêm sản phẩm mới vào giỏ hàng
@@ -19,12 +19,14 @@ const addToCart = (state, product) => {
 
 // Hàm xử lý xoá sản phẩm khỏi giỏ hàng
 const removeFromCart = (state, productId) => {
-    return state.filter((item) => item.id !== productId);
+    return state.filter((item) => item._id !== productId);
 };
 
 // Hàm xử lý thay đổi số lượng sản phẩm trong giỏ hàng
 const adjustQuantity = (state, productId, newQuantity) => {
-    return state.map((item) => (item.id === productId ? { ...item, quantity: newQuantity } : item));
+    return state.map((item) =>
+        item._id === productId ? { ...item, quantity: newQuantity } : item,
+    );
 };
 
 const cartReducer = (state = initialState, action) => {
