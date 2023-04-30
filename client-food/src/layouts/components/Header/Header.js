@@ -49,6 +49,7 @@ function Header() {
                     <div className={cx('action-btn')}>
                         <Link to="/cart">
                             <FontAwesomeIcon icon={faShoppingCart} />
+                            <span className={cx('badge')}>12</span>
                         </Link>
                     </div>
                     <div

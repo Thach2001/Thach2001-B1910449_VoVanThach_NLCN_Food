@@ -1,16 +1,25 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch, connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { removeFromCart, adjustQuantity } from '../../actions/cart';
+import { faArrowLeft, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { removeFromCart, adjustQuantity, setCartItems } from '../../actions/cart';
 import classNames from 'classnames/bind';
 import styles from './Cart.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Cart() {
-    const cartItems = useSelector((state) => state.cart);
+function Cart({ cartItems, onSetCartItems }) {
     const dispatch = useDispatch();
+
+    const [itemCount, setItemCount] = useState(0);
+
+    useEffect(() => {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        onSetCartItems(cartItems);
+        setItemCount(cartItems.reduce((total, item) => total + item.quantity, 0));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handleRemoveFromCart = (productId) => {
         dispatch(removeFromCart(productId));
@@ -33,9 +42,20 @@ function Cart() {
             <div className={cx('inner')}>
                 {cartItems.length > 0 ? (
                     <>
-                        <button className={cx('continue-btn')}>
-                            <Link to="/">Tiếp tục mua hàng</Link>
-                        </button>
+                        <div className={cx('cart-header')}>
+                            <button className={cx('continue-btn')}>
+                                <Link to="/">
+                                    <FontAwesomeIcon
+                                        className={'icon-arrowleft'}
+                                        icon={faArrowLeft}
+                                    />{' '}
+                                    Tiếp tục mua hàng
+                                </Link>
+                            </button>
+                            <h3 className={cx('product-count')}>
+                                Số sản phẩm: <span>{itemCount}</span>
+                            </h3>
+                        </div>
                         <table className={cx('cart-table')}>
                             <tbody>
                                 <tr>
@@ -112,4 +132,12 @@ function Cart() {
     );
 }
 
-export default Cart;
+const mapStateToProps = (state) => ({
+    cartItems: state.cart.cartItems,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    onSetCartItems: (cartItems) => dispatch(setCartItems(cartItems)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

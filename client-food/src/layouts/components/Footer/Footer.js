@@ -21,10 +21,10 @@ function Footer() {
                             <Link to="/products">Sản phẩm</Link>
                         </li>
                         <li>
-                            <Link to="/">Giỏ hàng</Link>
+                            <Link to="/cart">Giỏ hàng</Link>
                         </li>
                         <li>
-                            <Link to="/">Liên hệ</Link>
+                            <Link to="/contact">Liên hệ</Link>
                         </li>
                     </ul>
                 </div>
