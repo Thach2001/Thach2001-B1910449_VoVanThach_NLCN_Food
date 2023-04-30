@@ -33,7 +33,6 @@ function Home() {
 
     // add products to cart
     const handleAddToCart = (product) => {
-        console.log(product);
         dispatch(addToCart(product));
     };
 

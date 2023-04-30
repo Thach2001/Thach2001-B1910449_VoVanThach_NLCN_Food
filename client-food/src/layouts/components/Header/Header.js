@@ -47,7 +47,9 @@ function Header() {
                         <FontAwesomeIcon icon={faSearch} />
                     </div>
                     <div className={cx('action-btn')}>
-                        <FontAwesomeIcon icon={faShoppingCart} />
+                        <Link to="/cart">
+                            <FontAwesomeIcon icon={faShoppingCart} />
+                        </Link>
                     </div>
                     <div
                         className={cx('action-btn')}

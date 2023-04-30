@@ -33,11 +33,14 @@ function Cart() {
             <div className={cx('inner')}>
                 {cartItems.length > 0 ? (
                     <>
+                        <button className={cx('continue-btn')}>
+                            <Link to="/">Tiếp tục mua hàng</Link>
+                        </button>
                         <table className={cx('cart-table')}>
                             <tbody>
                                 <tr>
-                                    <th>Tên sản phẩm</th>
                                     <th>Hình ảnh</th>
+                                    <th>Tên sản phẩm</th>
                                     <th>Mô tả</th>
                                     <th>Số lượng</th>
                                     <th>Giá</th>
@@ -45,7 +48,6 @@ function Cart() {
                                 </tr>
                                 {cartItems.map((item) => (
                                     <tr key={item._id}>
-                                        <td>{item.name}</td>
                                         <td>
                                             <img
                                                 className={cx('img')}
@@ -53,6 +55,7 @@ function Cart() {
                                                 alt={item.name}
                                             />
                                         </td>
+                                        <td>{item.name}</td>
                                         <td>{item.description}</td>
                                         <td>
                                             <input
