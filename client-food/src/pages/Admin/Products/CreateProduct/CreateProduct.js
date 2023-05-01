@@ -56,7 +56,7 @@ function CreateProduct() {
         <div className={cx('wrapper')}>
             <div className={cx('form-create-product')}>
                 <form>
-                    <h2>Create Product</h2>
+                    <h2>Thêm sản phẩm</h2>
                     <div className={cx('form-group')}>
                         <input
                             type="text"
@@ -64,7 +64,7 @@ function CreateProduct() {
                             value={name}
                             onChange={handleChangeProductName}
                         />
-                        <label>Name</label>
+                        <label>Tên sản phẩm</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faPizzaSlice} />
                     </div>
                     <div className={cx('form-group')}>
@@ -81,7 +81,7 @@ function CreateProduct() {
                             value={image}
                             onChange={handleChangeProductImage}
                         />
-                        <label>Image</label>
+                        <label>Hình ảnh</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faImage} />
                     </div>
                     <div className={cx('form-group')}>
@@ -91,7 +91,7 @@ function CreateProduct() {
                             value={description}
                             onChange={handleChangeProductDescription}
                         />
-                        <label>Description</label>
+                        <label>Mô tả</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faPen} />
                     </div>
                     <div className={cx('form-group')}>
@@ -101,14 +101,14 @@ function CreateProduct() {
                             value={price}
                             onChange={handleChangeProductPrice}
                         />
-                        <label>Price</label>
+                        <label>Giá</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faDollar} />
                     </div>
                     <button className={cx('create-btn')} onClick={handleSubmitAddProduct}>
-                        Create
+                        Thêm mới
                     </button>
                     <button className={cx('cancel-btn')} onClick={handleCancel}>
-                        Cancel
+                        Quay lại
                     </button>
                 </form>
             </div>

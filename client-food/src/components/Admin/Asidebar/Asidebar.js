@@ -23,7 +23,7 @@ function Asidebar() {
                             <button className={cx('btn-icon')}>
                                 <FontAwesomeIcon icon={faHome} />
                             </button>
-                            Home
+                            Trang chủ
                         </Link>
                     </h3>
                 </div>
@@ -33,7 +33,7 @@ function Asidebar() {
                             <button className={cx('btn-icon')}>
                                 <FontAwesomeIcon icon={faUsers} />
                             </button>
-                            List Users
+                            Tài khoản
                         </Link>
                     </h3>
                 </div>
@@ -43,7 +43,7 @@ function Asidebar() {
                             <button className={cx('btn-icon')}>
                                 <FontAwesomeIcon icon={faPieChart} />
                             </button>
-                            List Products
+                            Sản phẩm
                         </Link>
                     </h3>
                 </div>
@@ -52,7 +52,7 @@ function Asidebar() {
                         <button className={cx('btn-icon')}>
                             <FontAwesomeIcon icon={faSignOut} />
                         </button>
-                        Logout
+                        Đăng xuất
                     </h3>
                 </div>
             </nav>

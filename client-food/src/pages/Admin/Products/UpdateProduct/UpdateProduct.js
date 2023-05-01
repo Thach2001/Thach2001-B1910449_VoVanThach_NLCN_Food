@@ -65,7 +65,7 @@ function UpdateProduct(props) {
         <div className={cx('wrapper')}>
             <div className={cx('form-update-product')}>
                 <form onSubmit={handleSubmitUpdateProduct}>
-                    <h2>Update Product</h2>
+                    <h2>Cập nhật sản phẩm</h2>
                     <div className={cx('form-group')}>
                         <input
                             type="text"
@@ -74,12 +74,18 @@ function UpdateProduct(props) {
                             value={updateProduct.name}
                             onChange={handleChange}
                         />
-                        <label>Name</label>
+                        <label>Tên sản phẩm</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faPizzaSlice} />
                     </div>
                     <div className={cx('form-group')}>
-                        <input type="file" accept=".jpg, .png" required />
-                        <img src={updateProduct.image} alt="trai cay" />
+                        <input
+                            type="text"
+                            required
+                            name="image"
+                            value={updateProduct.image}
+                            onChange={handleChange}
+                        />
+                        <label>Hình ảnh</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faImage} />
                     </div>
                     <div className={cx('form-group')}>
@@ -90,7 +96,7 @@ function UpdateProduct(props) {
                             value={updateProduct.description}
                             onChange={handleChange}
                         />
-                        <label>Description</label>
+                        <label>Mô tả</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faPen} />
                     </div>
                     <div className={cx('form-group')}>
@@ -101,14 +107,14 @@ function UpdateProduct(props) {
                             value={updateProduct.price}
                             onChange={handleChange}
                         />
-                        <label>Price</label>
+                        <label>Giá</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faDollar} />
                     </div>
                     <button type="submit" className={cx('update-btn')}>
-                        Update
+                        Cập nhật
                     </button>
                     <button className={cx('cancel-btn')} onClick={handleCancel}>
-                        Cancel
+                        Quay lại
                     </button>
                 </form>
             </div>

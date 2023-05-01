@@ -64,7 +64,7 @@ function UpdateUser(props) {
         <div className={cx('wrapper')}>
             <div className={cx('form-update-user')}>
                 <form onSubmit={handleSubmitUpdateUser}>
-                    <h2>Update User</h2>
+                    <h2>Cập nhật tài khoản</h2>
                     <div className={cx('form-group')}>
                         <input
                             type="text"
@@ -73,7 +73,7 @@ function UpdateUser(props) {
                             value={updateUser.username}
                             onChange={handleChange}
                         />
-                        <label>Username</label>
+                        <label>Tên tài khoản</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faUser} />
                     </div>
                     <div className={cx('form-group')}>
@@ -99,15 +99,15 @@ function UpdateUser(props) {
                             value={updateUser.role}
                             onChange={handleChange}
                         >
-                            <option value="Customer">Customer</option>
-                            <option value="Supporter">Supporter</option>
+                            <option value="Hỗ trợ">Hỗ trợ</option>
+                            <option value="Khách hàng">Khách hàng</option>
                         </select>
                     </div>
                     <button type="submit" className={cx('update-btn')}>
-                        Update
+                        Cập nhật
                     </button>
                     <button className={cx('cancel-btn')} onClick={handleCancel}>
-                        Cancel
+                        Quay lại
                     </button>
                 </form>
             </div>

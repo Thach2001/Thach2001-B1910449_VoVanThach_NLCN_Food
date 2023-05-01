@@ -7,7 +7,7 @@ const getListUser = async (req, res) => {
       const users = await userModel.find(); // find(): tra ve tat ca cac thong tin tim thay
       return res.status(200).send(users);
    } catch (error) {
-      // logs error
+      console.log(error);
    }
 };
 
@@ -23,7 +23,7 @@ const postUser = (req, res) => {
       });
       return res.status(200).send("create user success");
    } catch (error) {
-      // logs error
+      console.log(error);
    }
 };
 
@@ -33,7 +33,7 @@ const getUserId = async (req, res) => {
       const user = await userModel.findById(userId);
       return res.status(200).send(user);
    } catch (error) {
-      // logs error
+      console.log(error);
    }
 };
 
@@ -45,7 +45,7 @@ const updateUser = async (req, res) => {
       await userModel.findByIdAndUpdate(userId, req.body);
       return res.status(200).send("update user success");
    } catch (error) {
-      // logs error
+      console.log(error);
    }
 };
 
@@ -56,7 +56,7 @@ const deleteUser = async (req, res) => {
       await userModel.findByIdAndRemove(userId);
       return res.status(200).send("delete user success");
    } catch (error) {
-      // logs error
+      console.log(error);
    }
 };
 

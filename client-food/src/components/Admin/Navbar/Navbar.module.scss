@@ -47,17 +47,16 @@
 }
 
 .role-name {
-	height: 35px;
-	width: 90px;
-	margin-right: 10px;
-	border-radius: 8px;
-	background-color: #09914f;
 	font-size: 15px;
+	padding: 10px 15px;
+	margin-right: 10px;
+	background-color: #09914f;
+	border-radius: 8px;
 	border: none;
 	cursor: pointer;
 }
 
-.role-name > a {
+.role-name a {
 	color: white;
 }
 

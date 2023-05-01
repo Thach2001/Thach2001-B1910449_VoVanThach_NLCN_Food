@@ -28,29 +28,57 @@
 	padding: 0px 0px 20px 20px;
 }
 
-.report-header {
-	height: 80px;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 20px 20px 10px 20px;
-	border-bottom: 2px solid rgba(0, 20, 151, 0.59);
-}
-
 .report-name {
 	font-size: 30px;
 	font-weight: 600;
 	color: #5500cb;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.report-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 60px;
+	width: 100%;
+	padding-right: 45px;
+	border-bottom: 2px solid rgba(0, 20, 151, 0.59);
+}
+
+.search {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.search input {
+	width: 250px;
+	height: 42px;
+	border-radius: 50px 0 0 50px;
+	background-color: var(--background-color3);
+	padding: 0 10px 0 20px;
+	font-size: 15px;
+	outline: none;
+	border: none;
+}
+
+.search-btn {
+	width: 50px;
+	height: 42px;
+	color: #fff;
+	font-size: 20px;
+	border-radius: 0px 50px 50px 0px;
+	background-color: var(--secondary-color);
+	cursor: pointer;
 }
 
 .create-btn {
 	height: 35px;
-	width: 90px;
-	border-radius: 8px;
-	background-color: #5500cb;
 	font-size: 15px;
+	background-color: #5500cb;
 	border: none;
+	border-radius: 8px;
 	cursor: pointer;
 }
 
@@ -66,7 +94,7 @@
 }
 
 .report-topic {
-	width: 1120px;
+	width: 1160px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -83,8 +111,8 @@
 }
 
 .items {
-	width: 1120px;
-	margin-top: 15px;
+	width: 1160px;
+	margin-top: 30px;
 }
 
 .item1 {
@@ -109,11 +137,11 @@
 
 .handle,
 .handle a {
+	color: #fff;
+	padding: 5px;
 	border: none;
 	border-radius: 5px;
-	padding: 5px;
 	cursor: pointer;
-	color: #fff;
 }
 
 .edit-btn {
@@ -123,4 +151,9 @@
 
 .delete-btn {
 	background-color: red;
+}
+
+.no-user {
+	text-align: center;
+	margin-top: 60px;
 }

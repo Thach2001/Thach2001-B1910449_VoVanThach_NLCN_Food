@@ -36,7 +36,7 @@ function Register() {
         });
 
         if (response.status === 200) {
-            alert(`${username} đã đăng ký tài khoản thành công`);
+            alert(`Chúc mừng ${username} đã đăng ký tài khoản thành công`);
             navigate('/login');
         }
     };

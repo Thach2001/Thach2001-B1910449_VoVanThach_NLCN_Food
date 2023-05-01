@@ -5,13 +5,6 @@ const jwt = require("jsonwebtoken");
 const register = async (req, res) => {
    try {
       // get infor from client
-
-      // Cach 1:
-      // const username = req.body.username;
-      // const email = req.body.email;
-      // const password = req.body.password;
-
-      // Cach 2
       const { username, email, password } = req.body;
 
       // create data to database
@@ -19,7 +12,7 @@ const register = async (req, res) => {
          username: username,
          email: email,
          password: bcrypt.hashSync(password, 10),
-         role: "regular",
+         role: "Khách hàng",
       });
    } catch (error) {
       console.log("error", error);

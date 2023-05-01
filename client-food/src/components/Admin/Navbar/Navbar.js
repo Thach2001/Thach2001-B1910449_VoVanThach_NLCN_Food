@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import classNames from 'classnames/bind';
 
@@ -40,19 +38,9 @@ function Navbar() {
             <div className={cx('trademark')}>
                 <div className={cx('logo')}>FOODStore</div>
             </div>
-
-            <div className={cx('search')}>
-                <input type="text" placeholder="Tìm kiếm..." />
-                <button className={cx('search-btn')}>
-                    <FontAwesomeIcon icon={faSearch} />
-                </button>
-            </div>
-
             <div className={cx('info')}>
                 <button className={cx('role-name')}>
-                    <Link to="/admin" className="btn btn-success">
-                        {authState.user.username}
-                    </Link>
+                    <Link to="/admin">{authState.user.username}</Link>
                 </button>
                 <div className={cx('avatar')}>
                     <img

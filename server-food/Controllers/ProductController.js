@@ -7,7 +7,7 @@ const getListProduct = async (req, res) => {
       const products = await productModel.find(); // find(): tra ve tat ca cac thong tin tim thay
       return res.status(200).send(products);
    } catch (error) {
-      // logs error
+      console.log(error);
    }
 };
 
@@ -23,7 +23,7 @@ const postProduct = (req, res) => {
       });
       return res.status(200).send("create product success");
    } catch (error) {
-      // logs error
+      console.log(error);
    }
 };
 
@@ -33,7 +33,7 @@ const getProductId = async (req, res) => {
       const product = await productModel.findById(productId);
       return res.status(200).send(product);
    } catch (error) {
-      // logs error
+      console.log(error);
    }
 };
 
@@ -45,7 +45,7 @@ const updateProduct = async (req, res) => {
       await productModel.findByIdAndUpdate(productId, req.body);
       return res.status(200).send("update product success");
    } catch (error) {
-      // logs error
+      console.log(error);
    }
 };
 

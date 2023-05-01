@@ -2,16 +2,11 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { addToCart } from '../../actions/cart';
 import axios from 'axios';
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
 import LandingPage from '~/components/LandingPage/LandingPage';
-
-import { addToCart } from '../../actions/cart';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
 
 const cx = classNames.bind(styles);
 
@@ -73,25 +68,37 @@ function Home() {
                     </label>
                 </form>
                 <div className={cx('products')}>
-                    {productList.map((product) => (
-                        <ul className={cx('product-box')} key={product._id}>
-                            <li>
-                                <img src={product.image} alt={product.name} />
-                                <h3>{product.name}</h3>
-                                <div className={cx('price')}>
-                                    {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
-                                    vnđ
-                                </div>
-                                <div className={cx('description')}>{product.description}</div>
-                                <button
-                                    className={cx('cart-btn')}
-                                    onClick={() => handleAddToCart(product)}
-                                >
-                                    Thêm vào giỏ hàng
-                                </button>
-                            </li>
-                        </ul>
-                    ))}
+                    {productList.length > 0 ? (
+                        <>
+                            {productList.map((product) => (
+                                <ul className={cx('product-box')} key={product._id}>
+                                    <li>
+                                        <img src={product.image} alt={product.name} />
+                                        <h3>{product.name}</h3>
+                                        <div className={cx('price')}>
+                                            {product.price
+                                                .toString()
+                                                .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
+                                            vnđ
+                                        </div>
+                                        <div className={cx('description')}>
+                                            {product.description}
+                                        </div>
+                                        <button
+                                            className={cx('cart-btn')}
+                                            onClick={() => handleAddToCart(product)}
+                                        >
+                                            Thêm vào giỏ hàng
+                                        </button>
+                                    </li>
+                                </ul>
+                            ))}
+                        </>
+                    ) : (
+                        <h3 className={cx('no-product')}>
+                            Không có sản phẩm phù hợp với kết quả tìm kiếm
+                        </h3>
+                    )}
                 </div>
             </div>
         </div>

@@ -16,6 +16,7 @@ import UpdateProduct from '~/pages/Admin/Products/UpdateProduct';
 import Home from '~/pages/Home';
 import Products from '~/pages/Products';
 import Cart from '~/pages/Cart/Cart';
+import Contact from '~/pages/Contact/Contact';
 
 // Public routes
 const publicRoutes = [
@@ -37,6 +38,7 @@ const publicRoutes = [
     { path: '/', component: Home },
     { path: '/products', component: Products },
     { path: '/cart', component: Cart, layout: HeaderOnly },
+    { path: '/contact', component: Contact },
 ];
 
 const privateRoutes = [];

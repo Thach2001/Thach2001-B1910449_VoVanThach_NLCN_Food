@@ -56,7 +56,7 @@ function CreateUser() {
         <div className={cx('wrapper')}>
             <div className={cx('form-create-user')}>
                 <form>
-                    <h2>Create User</h2>
+                    <h2>Thêm tài khoản</h2>
                     <div className={cx('form-group')}>
                         <input
                             type="text"
@@ -64,7 +64,7 @@ function CreateUser() {
                             value={username}
                             onChange={handleChangeUserName}
                         />
-                        <label>Username</label>
+                        <label>Tên tài khoản</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faUser} />
                     </div>
                     <div className={cx('form-group')}>
@@ -79,7 +79,7 @@ function CreateUser() {
                             value={password}
                             onChange={handleChangePassword}
                         />
-                        <label>Password</label>
+                        <label>Mật khẩu</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faLock} />
                     </div>
                     <div className={cx('form-group')}>
@@ -88,15 +88,15 @@ function CreateUser() {
                             value={role}
                             onChange={handleChangeRole}
                         >
-                            <option value="Customer">Customer</option>
-                            <option value="Supporter">Supporter</option>
+                            <option value="Hỗ trợ">Hỗ trợ</option>
+                            <option value="Khách hàng">Khách hàng</option>
                         </select>
                     </div>
                     <button className={cx('create-btn')} onClick={handleSubmitAddUser}>
-                        Create
+                        Thêm mới
                     </button>
                     <button className={cx('cancel-btn')} onClick={handleCancel}>
-                        Cancel
+                        Quay lại
                     </button>
                 </form>
             </div>
