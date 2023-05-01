@@ -26,6 +26,7 @@ function Header() {
         localStorage.removeItem('accessToken');
         navigate('/login');
     };
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>

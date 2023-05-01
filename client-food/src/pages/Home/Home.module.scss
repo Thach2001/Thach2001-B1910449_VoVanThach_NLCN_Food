@@ -3,6 +3,7 @@
 }
 
 .heading {
+    position: relative;
     padding: 25px 0;
     font-size: 30px;
     color: var(--black);
@@ -16,6 +17,45 @@
     background-color: var(--orange);
     clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 7% 50%, 0% 0%);
 } 
+
+.search-form {
+    position: absolute;
+    right: 140px;
+    bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.search-form input {
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    padding-left: 15px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+}
+
+.search-form label {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 2rem;
+    padding: 0 10px;
+    color: var(--black);
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.search-form label:hover {
+    color: var(--orange)
+}
 
 .products {
     display: flex;

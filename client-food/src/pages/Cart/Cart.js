@@ -31,6 +31,8 @@ function Cart({ cartItems, onSetCartItems }) {
 
     const handleCheckout = () => {
         alert('Thanh toán');
+        localStorage.removeItem('cartItems');
+        window.location.reload();
     };
 
     const totalPrice = cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0);

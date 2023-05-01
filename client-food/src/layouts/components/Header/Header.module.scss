@@ -84,6 +84,7 @@
     right: 20px;
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 500px;
     height: 50px;
     border-radius: 5px;
@@ -95,16 +96,20 @@
     height: 100%;
     width: 100%;
     font-size: 16px;
-    padding: 0 15px;
+    padding-left: 15px;
     background-color: #fff;
     border: none;
     outline: none;
 }
 
 .search-form label {
+    display: flex;
+    align-items: center;
+    height: 100%;
     font-size: 2rem;
-    padding-right: 15px;
+    padding: 0 10px;
     color: var(--black);
+    background-color: #fff;
     cursor: pointer;
 }
 

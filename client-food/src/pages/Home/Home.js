@@ -1,5 +1,7 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
@@ -36,6 +38,23 @@ function Home() {
         dispatch(addToCart(product));
     };
 
+    // search
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleChangeSearchTerm = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    const searchProducts = () => {
+        return products.filter(
+            (product) =>
+                product.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+                product.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
+        );
+    };
+
+    const productList = searchProducts();
+
     return (
         <div className={cx('wrapper')}>
             <LandingPage />
@@ -43,8 +62,18 @@ function Home() {
                 <h1 className={cx('heading')}>
                     <span>Thức ăn nhanh</span>
                 </h1>
+                <form className={cx('search-form')}>
+                    <input
+                        type="search"
+                        placeholder="Tìm kiếm sản phẩm..."
+                        onChange={handleChangeSearchTerm}
+                    />
+                    <label>
+                        <FontAwesomeIcon icon={faSearch} />
+                    </label>
+                </form>
                 <div className={cx('products')}>
-                    {products.map((product) => (
+                    {productList.map((product) => (
                         <ul className={cx('product-box')} key={product._id}>
                             <li>
                                 <img src={product.image} alt={product.name} />
