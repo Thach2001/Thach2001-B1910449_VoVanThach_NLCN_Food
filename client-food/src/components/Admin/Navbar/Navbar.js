@@ -36,7 +36,9 @@ function Navbar() {
     return (
         <header className={cx('header')}>
             <div className={cx('trademark')}>
-                <div className={cx('logo')}>FOODStore</div>
+                <Link to="/" className={cx('logo')}>
+                    FOODStore
+                </Link>
             </div>
             <div className={cx('info')}>
                 <button className={cx('role-name')}>

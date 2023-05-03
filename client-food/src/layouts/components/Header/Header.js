@@ -32,7 +32,7 @@ function Header() {
             <div className={cx('inner')}>
                 <Link to="/" className={cx('logo')}>
                     <FontAwesomeIcon className={cx('icon-logo')} icon={faShoppingBasket} />{' '}
-                    FoodStore
+                    FOODStore
                 </Link>
                 <nav className={cx('navbar')}>
                     <Link to="/">Trang chủ</Link>

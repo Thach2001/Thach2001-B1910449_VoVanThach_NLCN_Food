@@ -2,9 +2,10 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
+const authRoute = require("./Router/AuthRoute");
 const userRoute = require("./Router/UserRoute");
 const ProductRoute = require("./Router/ProductRoute");
-const authRoute = require("./Router/AuthRoute");
+const contactRoute = require("./Router/ContactRoute");
 const connectDb = require("./Services/ConnectDbService");
 
 require("dotenv").config();
@@ -26,6 +27,9 @@ app.use("/auth/admin", userRoute);
 
 // CRUD Products
 app.use("/auth/admin", ProductRoute);
+
+// Contact
+app.use("/auth/admin", contactRoute);
 
 app.listen(process.env.PORT, function () {
    console.log(`Server listen on port ${process.env.PORT}`);

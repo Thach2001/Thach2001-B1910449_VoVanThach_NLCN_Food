@@ -1,6 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPieChart, faSignOut, faUsers } from '@fortawesome/free-solid-svg-icons';
+import {
+    faContactBook,
+    faHome,
+    faPieChart,
+    faSignOut,
+    faUsers,
+} from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
 import styles from './Asidebar.module.scss';
@@ -44,6 +50,16 @@ function Asidebar() {
                                 <FontAwesomeIcon icon={faPieChart} />
                             </button>
                             Sản phẩm
+                        </Link>
+                    </h3>
+                </div>
+                <div className={cx('nav-option')}>
+                    <h3 className={cx('content')}>
+                        <Link to="/admin/contact">
+                            <button className={cx('btn-icon')}>
+                                <FontAwesomeIcon icon={faContactBook} />
+                            </button>
+                            Liên hệ & Góp ý
                         </Link>
                     </h3>
                 </div>

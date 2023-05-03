@@ -73,20 +73,6 @@
 	cursor: pointer;
 }
 
-.create-btn {
-	height: 35px;
-	font-size: 15px;
-	background-color: #5500cb;
-	border: none;
-	border-radius: 8px;
-	cursor: pointer;
-}
-
-.create-btn a {
-	color: #fff;
-	padding: 20px;
-}
-
 .report-body {
 	max-width: 1160px;
 	overflow-x: auto;
@@ -96,67 +82,60 @@
 .report-topic {
 	width: 1160px;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
-}
-
-.th-report {
 	text-align: center;
-	flex: 1;
 }
 
-.th-report-description,
-.th-report-createdAt {
-	flex: 2;
+.report-topic h3:first-child {
+	width: 15%;
 }
+
+.report-topic h3:nth-child(2) {
+	width: 25%;
+}
+
+.report-topic h3:nth-child(3) {
+	width: 20%;
+}
+
+.report-topic h3:nth-child(4) {
+	width: 50%;
+}
+
 
 .items {
 	width: 1160px;
-	margin-top: 15px;
+	margin-top: 30px;
 }
 
-.item1 {
+.item {
 	margin-top: 20px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	text-align: center;
 }
 
-.item-content {
+.item h3 {
 	font-size: 14px;
 	letter-spacing: 0px;
 	font-weight: 600;
-	text-align: center;
-	flex: 1;
 }
 
-.tem-content-description,
-.item-content-createdAt {
-	flex: 2;
+.item h3:first-child {
+	width: 15%;
 }
 
-.img-product {
-    width: 80px;
-    height: 60px;
-    border-radius: 5px;
+.item h3:nth-child(2) {
+	width: 25%;
 }
 
-.handle,
-.handle a {
-	color: #fff;
-	padding: 5px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+.item h3:nth-child(3) {
+	width: 20%;
 }
 
-.edit-btn {
-	background-color: green;
-	margin-right: 5px;
-}
-
-.delete-btn {
-	background-color: red;
+.item h3:nth-child(4) {
+	width: 50%;
 }
 
 .no-user {

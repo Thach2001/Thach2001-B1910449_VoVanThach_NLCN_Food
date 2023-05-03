@@ -39,8 +39,9 @@ function Cart({ cartItems, onSetCartItems }) {
 
     return (
         <div className={cx('wrapper')}>
-            <h1 className={cx('heading')}>Giỏ hàng</h1>
-
+            <h1 className={cx('heading')}>
+                <span>Giỏ hàng</span>
+            </h1>
             <div className={cx('inner')}>
                 {cartItems.length > 0 ? (
                     <>

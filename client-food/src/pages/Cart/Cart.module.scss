@@ -1,13 +1,23 @@
 .wrapper {
     height: auto;
+    padding-bottom: 50px;
 }
 
 .heading {
-    font-size: 4rem;
-    margin: 25px 0 15px 0;
+    position: relative;
+    padding: 25px 0;
+    font-size: 30px;
     color: var(--black);
     text-align: center;
 }
+
+.heading span {
+    display: inline-block;
+    color: #fff;
+    padding: 5px 30px;
+    background-color: var(--orange);
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 7% 50%, 0% 0%);
+} 
 
 .cart-header {
     display: flex;

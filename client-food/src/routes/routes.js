@@ -13,6 +13,8 @@ import AdminProduct from '~/pages/Admin/Products';
 import CreateProduct from '~/pages/Admin/Products/CreateProduct';
 import UpdateProduct from '~/pages/Admin/Products/UpdateProduct';
 
+import AdminContact from '~/pages/Admin/Contact';
+
 import Home from '~/pages/Home';
 import Products from '~/pages/Products';
 import Cart from '~/pages/Cart/Cart';
@@ -34,11 +36,14 @@ const publicRoutes = [
     { path: '/admin/product/create', component: CreateProduct, layout: null },
     { path: '/admin/product/edit/:_id', component: UpdateProduct, layout: null },
 
+    // Contact
+    { path: '/admin/contact', component: AdminContact, layout: null },
+
     // Home
     { path: '/', component: Home },
     { path: '/products', component: Products },
-    { path: '/cart', component: Cart, layout: HeaderOnly },
-    { path: '/contact', component: Contact },
+    { path: '/cart', component: Cart },
+    { path: '/contact', component: Contact, layout: HeaderOnly },
 ];
 
 const privateRoutes = [];
