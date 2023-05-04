@@ -39,6 +39,7 @@ function Header() {
                     <Link to="/products">Sản phẩm</Link>
                     <Link to="/cart">Giỏ hàng</Link>
                     <Link to="/contact">Liên hệ</Link>
+                    <Link to="/feedback">Đánh giá</Link>
                 </nav>
                 <div className={cx('actions')}>
                     <div
