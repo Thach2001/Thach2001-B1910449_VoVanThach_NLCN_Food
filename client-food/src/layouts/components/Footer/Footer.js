@@ -26,6 +26,9 @@ function Footer() {
                         <li>
                             <Link to="/contact">Liên hệ</Link>
                         </li>
+                        <li>
+                            <Link to="/feedback">Đánh giá</Link>
+                        </li>
                     </ul>
                 </div>
                 <div className={cx('content', 'about')}>

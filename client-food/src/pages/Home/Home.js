@@ -44,6 +44,7 @@ function Home() {
         return products.filter(
             (product) =>
                 product.productname.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+                product.category.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
                 product.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         );
     };
@@ -55,7 +56,7 @@ function Home() {
             <LandingPage />
             <div className={cx('inner')}>
                 <h1 className={cx('heading')}>
-                    <span>Thức ăn nhanh</span>
+                    <span>Sản phẩm</span>
                 </h1>
                 <form className={cx('search-form')}>
                     <input

@@ -57,6 +57,7 @@ function Products() {
         return products.filter(
             (product) =>
                 product.productname.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+                product.category.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
                 product.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         );
     };

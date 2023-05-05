@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDollar, faImage, faPen, faPizzaSlice } from '@fortawesome/free-solid-svg-icons';
+import { faDollar, faImage, faLemon, faPen } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import classNames from 'classnames/bind';
 
@@ -76,7 +76,7 @@ function UpdateProduct(props) {
                             onChange={handleChange}
                         />
                         <label>Tên sản phẩm</label>
-                        <FontAwesomeIcon className={cx('icon-btn')} icon={faPizzaSlice} />
+                        <FontAwesomeIcon className={cx('icon-btn')} icon={faLemon} />
                     </div>
                     <div className={cx('form-group')}>
                         <input
