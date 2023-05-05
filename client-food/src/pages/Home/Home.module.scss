@@ -20,8 +20,9 @@
 
 .search-form {
     position: absolute;
+    top: 630px;
     right: 140px;
-    bottom: 50px;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,7 +136,6 @@
 }
 
 .no-product {
-    width: 100%;
     text-align: center;
-    margin: 50px;
+    margin: 150px;
 }

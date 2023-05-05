@@ -54,24 +54,26 @@ function Home() {
     return (
         <div className={cx('wrapper')}>
             <LandingPage />
-            <div className={cx('inner')}>
-                <h1 className={cx('heading')}>
-                    <span>Sản phẩm</span>
-                </h1>
-                <form className={cx('search-form')}>
-                    <input
-                        type="search"
-                        placeholder="Tìm kiếm sản phẩm..."
-                        onChange={handleChangeSearchTerm}
-                    />
-                    <label>
-                        <FontAwesomeIcon icon={faSearch} />
-                    </label>
-                </form>
-                <div className={cx('products')}>
-                    {productList.length > 0 ? (
-                        <>
-                            {productList.map((product) => (
+            <form className={cx('search-form')}>
+                <input
+                    type="search"
+                    placeholder="Tìm kiếm sản phẩm..."
+                    onChange={handleChangeSearchTerm}
+                />
+                <label>
+                    <FontAwesomeIcon icon={faSearch} />
+                </label>
+            </form>
+            {productList.length > 0 ? (
+                <div className={cx('inner')}>
+                    <h1 className={cx('heading')}>
+                        <span>Trái cây</span>
+                    </h1>
+
+                    <div className={cx('products')}>
+                        {productList
+                            .filter((product) => product.category === 'Trái cây')
+                            .map((product) => (
                                 <ul className={cx('product-box')} key={product._id}>
                                     <li>
                                         <img src={product.image} alt={product.productname} />
@@ -80,7 +82,7 @@ function Home() {
                                             {product.price
                                                 .toString()
                                                 .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
-                                            vnđ
+                                            vnđ/kg
                                         </div>
                                         <div className={cx('description')}>
                                             {product.description}
@@ -94,14 +96,41 @@ function Home() {
                                     </li>
                                 </ul>
                             ))}
-                        </>
-                    ) : (
-                        <h3 className={cx('no-product')}>
-                            Không có sản phẩm phù hợp với kết quả tìm kiếm
-                        </h3>
-                    )}
+                    </div>
+                    <h1 className={cx('heading')}>
+                        <span>Rau củ</span>
+                    </h1>
+                    <div className={cx('products')}>
+                        {productList
+                            .filter((product) => product.category === 'Rau củ')
+                            .map((product) => (
+                                <ul className={cx('product-box')} key={product._id}>
+                                    <li>
+                                        <img src={product.image} alt={product.productname} />
+                                        <h3>{product.productname}</h3>
+                                        <div className={cx('price')}>
+                                            {product.price
+                                                .toString()
+                                                .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
+                                            vnđ/kg
+                                        </div>
+                                        <div className={cx('description')}>
+                                            {product.description}
+                                        </div>
+                                        <button
+                                            className={cx('cart-btn')}
+                                            onClick={() => handleAddToCart(product)}
+                                        >
+                                            Thêm vào giỏ hàng
+                                        </button>
+                                    </li>
+                                </ul>
+                            ))}
+                    </div>
                 </div>
-            </div>
+            ) : (
+                <h3 className={cx('no-product')}>Không có sản phẩm phù hợp với kết quả tìm kiếm</h3>
+            )}
         </div>
     );
 }

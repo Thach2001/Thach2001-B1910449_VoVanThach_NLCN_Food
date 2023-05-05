@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import classNames from 'classnames/bind';
@@ -26,13 +26,38 @@ function Feedback() {
         const date = new Date(timestamp);
         return date.toLocaleString();
     };
+
+    // pagination
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const articlesPerPage = 4;
+    const totalArticles = feedbacks.length;
+    const totalPages = Math.ceil(totalArticles / articlesPerPage);
+    const indexOfLastArticle = currentPage * articlesPerPage;
+    const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+    const currentArticles = feedbacks.slice(indexOfFirstArticle, indexOfLastArticle);
+
+    const pageItems = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pageItems.push(
+            <li key={i}>
+                <button
+                    className={i === currentPage ? cx('active') : ''}
+                    onClick={() => setCurrentPage(i)}
+                >
+                    {i}
+                </button>
+            </li>,
+        );
+    }
+
     return (
         <div className={cx('wrapper')}>
             <h1 className={cx('heading')}>
                 <span>Đánh giá</span>
             </h1>
             <div className={cx('inner')}>
-                {feedbacks.map((feedback) => (
+                {currentArticles.map((feedback) => (
                     <div className={cx('content-container')} key={feedback._id}>
                         <div className={cx('contents')}>
                             <div className={cx('content-header')}>
@@ -47,6 +72,7 @@ function Feedback() {
                         <div className={cx('feedback')}>{feedback.feedback}</div>
                     </div>
                 ))}
+                <ul className={cx('pagination')}>{pageItems}</ul>
             </div>
         </div>
     );

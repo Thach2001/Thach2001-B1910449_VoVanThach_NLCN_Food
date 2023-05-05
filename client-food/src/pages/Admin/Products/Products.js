@@ -64,6 +64,30 @@ function Products() {
 
     const productList = searchProducts();
 
+    // pagination
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const articlesPerPage = 4;
+    const totalArticles = productList.length;
+    const totalPages = Math.ceil(totalArticles / articlesPerPage);
+    const indexOfLastArticle = currentPage * articlesPerPage;
+    const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+    const currentArticles = productList.slice(indexOfFirstArticle, indexOfLastArticle);
+
+    const pageItems = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pageItems.push(
+            <li key={i}>
+                <button
+                    className={i === currentPage ? cx('active') : ''}
+                    onClick={() => setCurrentPage(i)}
+                >
+                    {i}
+                </button>
+            </li>,
+        );
+    }
+
     return (
         <AdminLayout>
             <div className={cx('wrapper')}>
@@ -86,7 +110,7 @@ function Products() {
                             </Link>
                         </button>
                     </div>
-                    {productList.length > 0 ? (
+                    {currentArticles.length > 0 ? (
                         <>
                             <div className={cx('report-body')}>
                                 <div className={cx('report-topic')}>
@@ -102,7 +126,7 @@ function Products() {
                                     </h3>
                                     <h3 className={cx('th-report')}>Xử lý</h3>
                                 </div>
-                                {productList.map((product) => {
+                                {currentArticles.map((product) => {
                                     return (
                                         <div className={cx('items')} key={product._id}>
                                             <div className={cx('item1')}>
@@ -163,6 +187,7 @@ function Products() {
                                     );
                                 })}
                             </div>
+                            <ul className={cx('pagination')}>{pageItems}</ul>
                         </>
                     ) : (
                         <h3 className={cx('no-user')}>

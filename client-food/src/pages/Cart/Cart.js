@@ -37,13 +37,37 @@ function Cart({ cartItems, onSetCartItems }) {
 
     const totalPrice = cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0);
 
+    // pagination
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const articlesPerPage = 4;
+    const totalArticles = cartItems.length;
+    const totalPages = Math.ceil(totalArticles / articlesPerPage);
+    const indexOfLastArticle = currentPage * articlesPerPage;
+    const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+    const currentArticles = cartItems.slice(indexOfFirstArticle, indexOfLastArticle);
+
+    const pageItems = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pageItems.push(
+            <li key={i}>
+                <button
+                    className={i === currentPage ? cx('active') : ''}
+                    onClick={() => setCurrentPage(i)}
+                >
+                    {i}
+                </button>
+            </li>,
+        );
+    }
+
     return (
         <div className={cx('wrapper')}>
             <h1 className={cx('heading')}>
                 <span>Giỏ hàng</span>
             </h1>
             <div className={cx('inner')}>
-                {cartItems.length > 0 ? (
+                {currentArticles.length > 0 ? (
                     <>
                         <div className={cx('cart-header')}>
                             <button className={cx('continue-btn')}>
@@ -69,7 +93,7 @@ function Cart({ cartItems, onSetCartItems }) {
                                     <th>Giá</th>
                                     <th>Xử lý</th>
                                 </tr>
-                                {cartItems.map((item) => (
+                                {currentArticles.map((item) => (
                                     <tr key={item._id}>
                                         <td>
                                             <img
@@ -109,13 +133,14 @@ function Cart({ cartItems, onSetCartItems }) {
                                 ))}
                             </tbody>
                         </table>
+                        <ul className={cx('pagination')}>{pageItems}</ul>
                         <div className={cx('total-checkout')}>
                             <p className={cx('total-price')}>
                                 Tổng giá tiền:{' '}
                                 <span>
                                     {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
                                     vnđ
-                                </span>{' '}
+                                </span>
                             </p>
                             <button className={cx('checkout-btn')} onClick={handleCheckout}>
                                 Thanh toán

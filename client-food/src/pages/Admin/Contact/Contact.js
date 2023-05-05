@@ -51,6 +51,30 @@ function Contact() {
 
     const contactList = searchContacts();
 
+    // pagination
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const articlesPerPage = 6;
+    const totalArticles = contactList.length;
+    const totalPages = Math.ceil(totalArticles / articlesPerPage);
+    const indexOfLastArticle = currentPage * articlesPerPage;
+    const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+    const currentArticles = contactList.slice(indexOfFirstArticle, indexOfLastArticle);
+
+    const pageItems = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pageItems.push(
+            <li key={i}>
+                <button
+                    className={i === currentPage ? cx('active') : ''}
+                    onClick={() => setCurrentPage(i)}
+                >
+                    {i}
+                </button>
+            </li>,
+        );
+    }
+
     return (
         <AdminLayout>
             <div className={cx('wrapper')}>
@@ -68,7 +92,7 @@ function Contact() {
                             </button>
                         </div>
                     </div>
-                    {contactList.length > 0 ? (
+                    {currentArticles.length > 0 ? (
                         <>
                             <div className={cx('report-body')}>
                                 <div className={cx('report-topic')}>
@@ -77,7 +101,7 @@ function Contact() {
                                     <h3>Thời gian tạo</h3>
                                     <h3>Liên hệ & Góp ý</h3>
                                 </div>
-                                {contactList.map((contact) => {
+                                {currentArticles.map((contact) => {
                                     return (
                                         <div className={cx('items')} key={contact._id}>
                                             <div className={cx('item')}>
@@ -90,6 +114,7 @@ function Contact() {
                                     );
                                 })}
                             </div>
+                            <ul className={cx('pagination')}>{pageItems}</ul>
                         </>
                     ) : (
                         <h3 className={cx('no-user')}>Không có kết quả tìm kiếm</h3>

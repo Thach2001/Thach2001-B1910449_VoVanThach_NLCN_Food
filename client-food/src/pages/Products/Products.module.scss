@@ -21,7 +21,7 @@
 
 .search-form {
     position: absolute;
-    z-index: 1000;
+    z-index: 1;
     top: 130px;
     right: 140px;
     display: flex;
@@ -137,7 +137,6 @@
 }
 
 .no-product {
-    width: 100%;
     text-align: center;
-    margin: 50px;
+    margin: 150px;
 }
