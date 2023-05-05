@@ -42,7 +42,7 @@ function Products() {
     const searchProducts = () => {
         return products.filter(
             (product) =>
-                product.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+                product.productname.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
                 product.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         );
     };
@@ -71,8 +71,8 @@ function Products() {
                             {productList.map((product) => (
                                 <ul className={cx('product-box')} key={product._id}>
                                     <li>
-                                        <img src={product.image} alt={product.name} />
-                                        <h3>{product.name}</h3>
+                                        <img src={product.image} alt={product.productname} />
+                                        <h3>{product.productname}</h3>
                                         <div className={cx('price')}>
                                             {product.price
                                                 .toString()

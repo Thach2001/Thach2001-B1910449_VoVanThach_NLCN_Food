@@ -88,9 +88,9 @@ function Oder() {
                                                 <h3>{oder.username}</h3>
                                                 <h3>{oder.email}</h3>
                                                 <h3>
-                                                    <img src={oder.image} alt={oder.name} />
+                                                    <img src={oder.image} alt={oder.productname} />
                                                 </h3>
-                                                <h3>{oder.name}</h3>
+                                                <h3>{oder.productname}</h3>
                                                 <h3>{oder.price}</h3>
                                                 <h3>{oder.quantity}</h3>
                                                 <h3>{time(oder.createdAt)}</h3>

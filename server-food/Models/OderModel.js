@@ -8,7 +8,7 @@ const OderSchema = new mongoose.Schema(
          type: String,
          unique: true,
       },
-      name: String,
+      productname: String,
       image: String,
       description: String,
       price: Number,

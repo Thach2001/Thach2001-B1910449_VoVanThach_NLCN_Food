@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faContactBook,
     faHome,
-    faPieChart,
+    faLemon,
     faShoppingCart,
     faSignOut,
     faUsers,
@@ -21,6 +21,7 @@ function Asidebar() {
         localStorage.removeItem('accessToken');
         navigate('/');
     };
+
     return (
         <div className={cx('wrapper')}>
             <nav className={cx('nav')}>
@@ -48,7 +49,7 @@ function Asidebar() {
                     <h3 className={cx('content')}>
                         <Link to="/admin/product">
                             <button className={cx('btn-icon')}>
-                                <FontAwesomeIcon icon={faPieChart} />
+                                <FontAwesomeIcon icon={faLemon} />
                             </button>
                             Sản phẩm
                         </Link>

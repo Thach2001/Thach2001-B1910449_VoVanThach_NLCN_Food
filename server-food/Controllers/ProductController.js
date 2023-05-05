@@ -13,15 +13,15 @@ const getListProduct = async (req, res) => {
 
 const postProduct = (req, res) => {
    try {
-      // save data to user collection
-      const { name, image, description, price } = req.body;
+      const { productname, image, category, description, price } = req.body;
       productModel.create({
-         name: name,
+         productname: productname,
          image: image,
+         category: category,
          description: description,
          price: price,
       });
-      return res.status(200).send("create product success");
+      return res.status(200).send("Create product success");
    } catch (error) {
       console.log(error);
    }
@@ -39,9 +39,7 @@ const getProductId = async (req, res) => {
 
 const updateProduct = async (req, res) => {
    try {
-      // update product
       const productId = req.params.productId;
-      // const { productname, email, role } = req.body;
       await productModel.findByIdAndUpdate(productId, req.body);
       return res.status(200).send("update product success");
    } catch (error) {
@@ -51,12 +49,11 @@ const updateProduct = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
    try {
-      // delete product
       const productId = req.params.productId;
       await productModel.findByIdAndRemove(productId);
       return res.status(200).send("delete product success");
    } catch (error) {
-      // logs error
+      console.log(error);
    }
 };
 

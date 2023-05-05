@@ -12,17 +12,22 @@ const cx = classNames.bind(styles);
 function CreateProduct() {
     const navigate = useNavigate();
 
-    const [name, setName] = useState('');
+    const [productname, setProductName] = useState('');
     const [image, setImage] = useState('');
+    const [category, setCategory] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
 
     const handleChangeProductName = (event) => {
-        setName(event.target.value);
+        setProductName(event.target.value);
     };
 
     const handleChangeProductImage = (event) => {
         setImage(event.target.value);
+    };
+
+    const handleChangeProductCategory = (event) => {
+        setCategory(event.target.value);
     };
 
     const handleChangeProductDescription = (event) => {
@@ -36,14 +41,14 @@ function CreateProduct() {
     const handleSubmitAddProduct = async (event) => {
         event.preventDefault();
         const response = await axios.post('auth/admin/product/create', {
-            name: name,
+            productname: productname,
             image: image,
             description: description,
             price: price,
         });
 
         if (response.status === 200) {
-            alert(`Tạo sản phẩm ${name.toUpperCase()} thành công`);
+            alert(`Tạo sản phẩm ${productname.toUpperCase()} thành công`);
             navigate('/admin/product');
         }
     };
@@ -61,20 +66,13 @@ function CreateProduct() {
                         <input
                             type="text"
                             required
-                            value={name}
+                            value={productname}
                             onChange={handleChangeProductName}
                         />
                         <label>Tên sản phẩm</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faPizzaSlice} />
                     </div>
                     <div className={cx('form-group')}>
-                        {/* <input
-                            type="file"
-                            accept=".jpg, .png"
-                            required
-                            onChange={handleChangeProductImage}
-                        />
-                        <img src={image} alt="trai cay" /> */}
                         <input
                             type="text"
                             required
@@ -103,6 +101,16 @@ function CreateProduct() {
                         />
                         <label>Giá</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faDollar} />
+                    </div>
+                    <div className={cx('form-group')}>
+                        <select
+                            className={cx('select-option')}
+                            value={category}
+                            onChange={handleChangeProductCategory}
+                        >
+                            <option value="Trái cây">Trái cây</option>
+                            <option value="Rau củ">Rau củ</option>
+                        </select>
                     </div>
                     <button className={cx('create-btn')} onClick={handleSubmitAddProduct}>
                         Thêm mới

@@ -75,10 +75,10 @@ function Cart({ cartItems, onSetCartItems }) {
                                             <img
                                                 className={cx('img')}
                                                 src={item.image}
-                                                alt={item.name}
+                                                alt={item.productname}
                                             />
                                         </td>
-                                        <td>{item.name}</td>
+                                        <td>{item.productname}</td>
                                         <td>{item.description}</td>
                                         <td>
                                             <input

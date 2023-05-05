@@ -15,8 +15,9 @@ function UpdateProduct(props) {
     const { _id } = useParams();
 
     const [updateProduct, setUpdateProduct] = useState({
-        name: '',
+        productname: '',
         image: '',
+        category: '',
         description: '',
         price: '',
     });
@@ -70,8 +71,8 @@ function UpdateProduct(props) {
                         <input
                             type="text"
                             required
-                            name="name"
-                            value={updateProduct.name}
+                            name="productname"
+                            value={updateProduct.productname}
                             onChange={handleChange}
                         />
                         <label>Tên sản phẩm</label>
@@ -109,6 +110,17 @@ function UpdateProduct(props) {
                         />
                         <label>Giá</label>
                         <FontAwesomeIcon className={cx('icon-btn')} icon={faDollar} />
+                    </div>
+                    <div className={cx('form-group')}>
+                        <select
+                            className={cx('select-option')}
+                            name="category"
+                            value={updateProduct.category}
+                            onChange={handleChange}
+                        >
+                            <option value="Trái cây">Trái cây</option>
+                            <option value="Rau củ">Rau củ</option>
+                        </select>
                     </div>
                     <button type="submit" className={cx('update-btn')}>
                         Cập nhật

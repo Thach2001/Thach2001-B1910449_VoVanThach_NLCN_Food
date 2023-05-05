@@ -11,12 +11,19 @@ const getListOder = async (req, res) => {
 
 const postOder = (req, res) => {
    try {
-      const { username, email, name, image, description, price, quantity } =
-         req.body;
+      const {
+         username,
+         email,
+         productname,
+         image,
+         description,
+         price,
+         quantity,
+      } = req.body;
       OderModel.create({
          username: username,
          email: email,
-         name: name,
+         productname: productname,
          image: image,
          description: description,
          price: price,

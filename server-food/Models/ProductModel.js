@@ -3,8 +3,9 @@ const mongoose = require("mongoose");
 // Schema: mô tả hình dạng của documents
 const ProductSchema = new mongoose.Schema(
    {
-      name: String,
+      productname: String,
       image: String,
+      category: String,
       description: String,
       price: Number,
    },

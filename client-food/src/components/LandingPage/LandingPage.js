@@ -11,7 +11,12 @@ function LandingPage() {
                 <h3>
                     Cung cấp thức trái cây và rau củ <span>sạch và organic</span> cho bạn
                 </h3>
-                <p>Cung cấp thức trái cây và rau củ sạch và organic cho bạn</p>
+                <p>
+                    Được sản xuất và chế biến một cách tự nhiên, không sử dụng bất kỳ loại hóa chất
+                    hay chất bảo quản nào. Sản phẩm được sản xuất và giữ gìn bằng các phương pháp
+                    hữu cơ, bao gồm sử dụng phân bón và thuốc trừ sâu tự nhiên để giúp bảo vệ và
+                    phát triển cây trồng
+                </p>
                 <Link to="/products" className={cx('shop-btn')}>
                     Mua ngay
                 </Link>

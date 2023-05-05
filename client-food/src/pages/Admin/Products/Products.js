@@ -32,11 +32,11 @@ function Products() {
     }, []);
 
     // Delete product
-    const handleDeleteProduct = async (idProduct) => {
-        await axios.delete(`/auth/admin/product/delete/${idProduct}`);
+    const handleDeleteProduct = async (ProductId) => {
+        await axios.delete(`/auth/admin/product/delete/${ProductId}`);
         dispatch({
             type: 'REMOVE_PRODUCT',
-            payload: idProduct,
+            payload: ProductId,
         });
         alert(`Bạn đã xóa sản phẩm thành công`);
     };
@@ -56,7 +56,7 @@ function Products() {
     const searchProducts = () => {
         return products.filter(
             (product) =>
-                product.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+                product.productname.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
                 product.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         );
     };
@@ -91,8 +91,9 @@ function Products() {
                                 <div className={cx('report-topic')}>
                                     <h3 className={cx('th-report')}>Hình ảnh</h3>
                                     <h3 className={cx('th-report')}>Tên</h3>
+                                    <h3 className={cx('th-report')}>Loại</h3>
                                     <h3 className={cx('th-report', 'th-report-description')}>
-                                        Description
+                                        Mô tả
                                     </h3>
                                     <h3 className={cx('th-report')}>Giá</h3>
                                     <h3 className={cx('th-report', 'th-report-createdAt')}>
@@ -112,7 +113,10 @@ function Products() {
                                                     />
                                                 </h3>
                                                 <h3 className={cx('item-content')}>
-                                                    {product.name}
+                                                    {product.productname}
+                                                </h3>
+                                                <h3 className={cx('item-content')}>
+                                                    {product.category}
                                                 </h3>
                                                 <h3
                                                     className={cx(
