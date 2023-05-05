@@ -45,7 +45,7 @@ function LoginPage() {
             if (userLogin.role === 'admin') {
                 navigate('/admin/user');
             } else {
-                navigate('/');
+                navigate('/home');
             }
         }
     };

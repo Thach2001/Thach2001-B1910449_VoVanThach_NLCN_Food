@@ -47,7 +47,7 @@ function Cart({ cartItems, onSetCartItems }) {
                     <>
                         <div className={cx('cart-header')}>
                             <button className={cx('continue-btn')}>
-                                <Link to="/">
+                                <Link to="/home">
                                     <FontAwesomeIcon
                                         className={'icon-arrowleft'}
                                         icon={faArrowLeft}
@@ -126,7 +126,7 @@ function Cart({ cartItems, onSetCartItems }) {
                     <div className={cx('no-cart')}>
                         <p>Không có sản phẩm trong giỏ hàng</p>
                         <button className={cx('add-product')}>
-                            <Link to="/">Thêm sản phẩm</Link>
+                            <Link to="/home">Thêm sản phẩm</Link>
                         </button>
                     </div>
                 )}

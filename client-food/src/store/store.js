@@ -4,6 +4,7 @@ import authReducer from './reducers/authReducer';
 import userReducer from './reducers/userReducer';
 import productReducer from './reducers/productReducer';
 import cartReducer from './reducers/cartReducer';
+import oderReducer from './reducers/oderReducer';
 import contactReducer from './reducers/contactReducer';
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     user: userReducer,
     product: productReducer,
     cart: cartReducer,
+    oder: oderReducer,
     contact: contactReducer,
 });
 

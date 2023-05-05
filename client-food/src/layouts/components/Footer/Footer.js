@@ -15,7 +15,7 @@ function Footer() {
                     <h2>Đường Dẫn</h2>
                     <ul>
                         <li>
-                            <Link to="/">Trang Chủ</Link>
+                            <Link to="/home">Trang Chủ</Link>
                         </li>
                         <li>
                             <Link to="/products">Sản phẩm</Link>

@@ -5,6 +5,7 @@ const cors = require("cors");
 const authRoute = require("./Router/AuthRoute");
 const userRoute = require("./Router/UserRoute");
 const ProductRoute = require("./Router/ProductRoute");
+const oderRoute = require("./Router/OderRoute");
 const contactRoute = require("./Router/ContactRoute");
 const connectDb = require("./Services/ConnectDbService");
 
@@ -27,6 +28,9 @@ app.use("/auth/admin", userRoute);
 
 // CRUD Products
 app.use("/auth/admin", ProductRoute);
+
+// Contact
+app.use("/auth/admin", oderRoute);
 
 // Contact
 app.use("/auth/admin", contactRoute);

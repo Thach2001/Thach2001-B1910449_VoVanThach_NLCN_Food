@@ -4,6 +4,7 @@ import {
     faContactBook,
     faHome,
     faPieChart,
+    faShoppingCart,
     faSignOut,
     faUsers,
 } from '@fortawesome/free-solid-svg-icons';
@@ -18,14 +19,14 @@ function Asidebar() {
 
     const handleLogout = () => {
         localStorage.removeItem('accessToken');
-        navigate('/login');
+        navigate('/');
     };
     return (
         <div className={cx('wrapper')}>
             <nav className={cx('nav')}>
                 <div className={cx('nav-option')}>
                     <h3 className={cx('content')}>
-                        <Link to="/">
+                        <Link to="/home">
                             <button className={cx('btn-icon')}>
                                 <FontAwesomeIcon icon={faHome} />
                             </button>
@@ -50,6 +51,16 @@ function Asidebar() {
                                 <FontAwesomeIcon icon={faPieChart} />
                             </button>
                             Sản phẩm
+                        </Link>
+                    </h3>
+                </div>
+                <div className={cx('nav-option')}>
+                    <h3 className={cx('content')}>
+                        <Link to="/admin/oder">
+                            <button className={cx('btn-icon')}>
+                                <FontAwesomeIcon icon={faShoppingCart} />
+                            </button>
+                            Đơn hàng
                         </Link>
                     </h3>
                 </div>

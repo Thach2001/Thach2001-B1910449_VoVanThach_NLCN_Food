@@ -24,7 +24,7 @@ function Navbar() {
                 });
             } catch (error) {
                 if (error.response.status === 401) {
-                    navigate('/login');
+                    navigate('/');
                 }
             }
         }
@@ -36,7 +36,7 @@ function Navbar() {
     return (
         <header className={cx('header')}>
             <div className={cx('trademark')}>
-                <Link to="/" className={cx('logo')}>
+                <Link to="/home" className={cx('logo')}>
                     FOODStore
                 </Link>
             </div>

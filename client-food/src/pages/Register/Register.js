@@ -74,7 +74,7 @@ function Register() {
                     <button className={cx('register-btn')}>Đăng ký</button>
                     <div className={cx('login-btn')}>
                         <p>
-                            Nếu bạn đã có tài khoản <Link to="/login">Đăng nhập ngay!</Link>
+                            Nếu bạn đã có tài khoản <Link to="/">Đăng nhập ngay!</Link>
                         </p>
                     </div>
                 </form>
