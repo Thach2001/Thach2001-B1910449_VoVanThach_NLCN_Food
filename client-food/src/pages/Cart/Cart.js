@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, connect } from 'react-redux';
+import { useDispatch, useSelector, connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { removeFromCart, adjustQuantity, setCartItems } from '../../actions/cart';
+import axios from 'axios';
 import classNames from 'classnames/bind';
 import styles from './Cart.module.scss';
 
@@ -11,6 +12,25 @@ const cx = classNames.bind(styles);
 
 function Cart({ cartItems, onSetCartItems }) {
     const dispatch = useDispatch();
+    const authState = useSelector((state) => state.auth.user);
+
+    useEffect(() => {
+        async function getUserlogin() {
+            try {
+                const response = await axios.get('api/auth/me');
+                const user = response.data;
+                dispatch({
+                    type: 'LOGIN_SUCCESS',
+                    payload: user,
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        getUserlogin();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const [itemCount, setItemCount] = useState(0);
 
@@ -29,10 +49,24 @@ function Cart({ cartItems, onSetCartItems }) {
         dispatch(adjustQuantity(productId, newQuantity));
     };
 
-    const handleCheckout = () => {
-        alert('Thanh toán');
-        localStorage.removeItem('cartItems');
-        window.location.reload();
+    const handleCheckout = async (event) => {
+        event.preventDefault();
+
+        const data = {
+            authState: authState,
+            cartItems: cartItems,
+            totalPrice: totalPrice,
+        };
+
+        const response = await axios.post('auth/admin/oder/create', {
+            data,
+        });
+
+        if (response.status === 200) {
+            alert(`Đơn hàng của bạn đang chờ xử lý`);
+            localStorage.removeItem('cartItems');
+            window.location.reload();
+        }
     };
 
     const totalPrice = cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0);

@@ -11,7 +11,7 @@ router.get(
 
 router.post(
    "/contact/create",
-   [authMiddleware.isAuthentication, authMiddleware.isAdmin],
+   [authMiddleware.isAuthentication],
    contactController.postContact
 );
 

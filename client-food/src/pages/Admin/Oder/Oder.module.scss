@@ -66,112 +66,73 @@
 .search-btn {
 	width: 50px;
 	height: 42px;
-	color: #fff;
 	font-size: 20px;
+	color: #fff;
 	border-radius: 0px 50px 50px 0px;
 	background-color: var(--secondary-color);
 	cursor: pointer;
 }
 
 .report-body {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 50px;
 	max-width: 1160px;
-	overflow-x: auto;
 	padding: 20px 0px;
 }
 
-.report-topic {
-	width: 1160px;
-	display: flex;
-	align-items: center;
-	text-align: center;
-}
-
-.report-topic h3:first-child {
-	width: 15%;
-}
-
-.report-topic h3:nth-child(2) {
-	width: 20%;
-}
-
-.report-topic h3:nth-child(3) {
-	width: 10%;
-}
-
-.report-topic h3:nth-child(4) {
-	width: 20%;
-}
-
-.report-topic h3:nth-child(5) {
-	width: 10%;
-}
-
-.report-topic h3:nth-child(6) {
-	width: 10%;
-}
-
-.report-topic h3:nth-child(7) {
-	width: 20%;
-}
-
-
 .items {
-	width: 1160px;
-	margin-top: 30px;
+	width: 350px;
+	max-height: 500px;
+	border: 2px solid black;
+	border-radius: 5px;
 }
 
 .item {
-	margin-top: 20px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	text-align: center;
-}
-
-.item h3 {
-	font-size: 14px;
-	letter-spacing: 0px;
+	padding: 10px;
+	font-size: 12px;
 	font-weight: 600;
 }
 
-.item h3:first-child {
-	width: 15%;
+.item-heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
-.item h3:nth-child(2) {
-	width: 20%;
+.list-cart {
+	display: flex;
+	align-items: center;
+	width: 300px;
+	height: auto;
+	font-size: 13px;
+	letter-spacing: 0px;
+	margin: 0 auto;
+	margin: 15px;
+	padding: 10px;
+	border: 1px solid #333;
+	border-radius: 5px;
 }
 
-.item h3:nth-child(3) {
-	width: 10%;
+.list-cart img {
+	width: 90px;
+	height: 70px;
 }
 
-.item h3:nth-child(4) {
-	width: 20%;
-}
-
-.item h3:nth-child(5) {
-	width: 10%;
-}
-
-.item h3:nth-child(6) {
-	width: 10%;
-}
-
-.item h3:nth-child(7) {
-	width: 20%;
-}
-
-.item h3 img {
-	width: 60px;
-	height: 50px;
+.list-cart p {
+	margin-left: 15px;
 }
 
 .actions {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 	align-items: center;
-	margin: 15px 30px 0 0;
+	margin: 20px 8px 10px 12px;
+}
+
+.actions h3 {
+	color: var(--primary);
 }
 
 .delete-btn,
@@ -197,3 +158,4 @@
 	text-align: center;
 	margin-top: 60px;
 }
+

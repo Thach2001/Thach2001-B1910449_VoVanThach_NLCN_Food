@@ -15,7 +15,6 @@ function Oder() {
     const oders = useSelector(function (state) {
         return state.oder;
     });
-    console.log(oders);
 
     useEffect(() => {
         async function getListOder() {
@@ -41,12 +40,20 @@ function Oder() {
         setSearchTerm(e.target.value);
     };
 
+    const handleDeleteOder = async (oderId) => {
+        await axios.delete(`/auth/admin/oder/delete/${oderId}`);
+        dispatch({
+            type: 'REMOVE_ODER',
+            payload: oderId,
+        });
+        alert(`Bạn đã hủy đơn hàng thành công`);
+    };
+
     const searchOders = () => {
         return oders.filter(
             (oder) =>
                 oder.username.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
-                oder.email.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
-                oder.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
+                oder.email.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         );
     };
 
@@ -72,43 +79,60 @@ function Oder() {
                     {oderList.length > 0 ? (
                         <>
                             <div className={cx('report-body')}>
-                                <div className={cx('report-topic')}>
-                                    <h3>Họ và tên</h3>
-                                    <h3>Email</h3>
-                                    <h3>Hình ảnh</h3>
-                                    <h3>Tên sản phẩm</h3>
-                                    <h3>Giá</h3>
-                                    <h3>Số lượng</h3>
-                                    <h3>Ngày tạo</h3>
-                                </div>
                                 {oderList.map((oder) => {
                                     return (
                                         <div className={cx('items')} key={oder._id}>
                                             <div className={cx('item')}>
-                                                <h3>{oder.username}</h3>
+                                                <div className={cx('item-heading')}>
+                                                    <h3>{oder.username}</h3>
+                                                    <h3>{time(oder.createdAt)}</h3>
+                                                </div>
                                                 <h3>{oder.email}</h3>
-                                                <h3>
-                                                    <img src={oder.image} alt={oder.productname} />
-                                                </h3>
-                                                <h3>{oder.productname}</h3>
-                                                <h3>{oder.price}</h3>
-                                                <h3>{oder.quantity}</h3>
-                                                <h3>{time(oder.createdAt)}</h3>
+                                                <div className={cx('list-cart')}>
+                                                    <img
+                                                        src={oder.cart[0].image}
+                                                        alt={oder.cart[0].productname}
+                                                    />
+                                                    <p>{oder.cart[0].productname}</p>
+                                                    <p>
+                                                        {' '}
+                                                        -{' '}
+                                                        {oder.cart[0].price
+                                                            .toString()
+                                                            .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+                                                    </p>
+                                                    <p> x {oder.cart[0].quantity}</p>
+                                                </div>
+                                                <div className={cx('actions')}>
+                                                    <h3>
+                                                        Tổng:{' '}
+                                                        {oder.totalPrice
+                                                            .toString()
+                                                            .replace(
+                                                                /\B(?=(\d{3})+(?!\d))/g,
+                                                                '.',
+                                                            )}{' '}
+                                                        vnđ
+                                                    </h3>
+                                                    <div>
+                                                        <button
+                                                            className={cx('delete-btn')}
+                                                            onClick={() =>
+                                                                handleDeleteOder(oder._id)
+                                                            }
+                                                        >
+                                                            <FontAwesomeIcon icon={faTrash} /> Hủy
+                                                        </button>
+                                                        <button className={cx('check-btn')}>
+                                                            <FontAwesomeIcon icon={faCheck} /> Xác
+                                                            nhận
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     );
                                 })}
-                                <h3 className={cx('actions')}>
-                                    <button
-                                        className={cx('delete-btn')}
-                                        // onClick={() => handleDeleteProduct(product._id)}
-                                    >
-                                        <FontAwesomeIcon icon={faTrash} /> Hủy
-                                    </button>
-                                    <button className={cx('check-btn')}>
-                                        <FontAwesomeIcon icon={faCheck} /> Xác nhận
-                                    </button>
-                                </h3>
                             </div>
                         </>
                     ) : (

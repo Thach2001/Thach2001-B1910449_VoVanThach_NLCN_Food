@@ -8,11 +8,8 @@ const OderSchema = new mongoose.Schema(
          type: String,
          unique: true,
       },
-      productname: String,
-      image: String,
-      description: String,
-      price: Number,
-      quantity: Number,
+      cart: Array,
+      totalPrice: Number,
    },
    { timestamps: true }
 );

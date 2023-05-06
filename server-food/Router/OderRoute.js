@@ -11,8 +11,14 @@ router.get(
 
 router.post(
    "/oder/create",
-   [authMiddleware.isAuthentication, authMiddleware.isAdmin],
+   [authMiddleware.isAuthentication],
    oderController.postOder
+);
+
+router.delete(
+   "/oder/delete/:oderId",
+   [authMiddleware.isAuthentication, authMiddleware.isAdmin],
+   oderController.deleteOder
 );
 
 module.exports = router;
