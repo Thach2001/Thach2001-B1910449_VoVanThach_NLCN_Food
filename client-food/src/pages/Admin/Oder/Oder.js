@@ -95,8 +95,6 @@ function Oder() {
                                                     />
                                                     <p>{oder.cart[0].productname}</p>
                                                     <p>
-                                                        {' '}
-                                                        -{' '}
                                                         {oder.cart[0].price
                                                             .toString()
                                                             .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}

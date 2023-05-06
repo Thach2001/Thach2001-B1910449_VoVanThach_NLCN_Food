@@ -3,7 +3,6 @@ import styles from './AdminLayout.module.scss';
 
 import Navbar from '~/components/Admin/Navbar';
 import Asidebar from '~/components/Admin/Asidebar';
-import Footer from '~/components/Admin/Footer/Footer';
 
 const cx = classNames.bind(styles);
 
@@ -15,7 +14,6 @@ function AdminLayout({ children }) {
                 <Asidebar />
                 {children}
             </div>
-            <Footer />
         </div>
     );
 }
