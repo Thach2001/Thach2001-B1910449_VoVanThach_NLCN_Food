@@ -31,6 +31,7 @@ function Home() {
     // add products to cart
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
+        alert(`Đã thêm ${product.productname.toUpperCase()} vào giỏ hàng`);
     };
 
     // search

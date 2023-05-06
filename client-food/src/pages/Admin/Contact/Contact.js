@@ -54,7 +54,7 @@ function Contact() {
     // pagination
     const [currentPage, setCurrentPage] = useState(1);
 
-    const articlesPerPage = 6;
+    const articlesPerPage = 5;
     const totalArticles = contactList.length;
     const totalPages = Math.ceil(totalArticles / articlesPerPage);
     const indexOfLastArticle = currentPage * articlesPerPage;

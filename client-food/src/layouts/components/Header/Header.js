@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faRegistered,
     faSearch,
-    faShoppingBasket,
     faShoppingCart,
     faSignOut,
+    faStore,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
@@ -54,8 +54,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <Link to="/home" className={cx('logo')}>
-                    <FontAwesomeIcon className={cx('icon-logo')} icon={faShoppingBasket} />{' '}
-                    FOODStore
+                    <FontAwesomeIcon className={cx('icon-logo')} icon={faStore} /> FOODStore
                 </Link>
                 <nav className={cx('navbar')}>
                     <Link to="/home">Trang chủ</Link>

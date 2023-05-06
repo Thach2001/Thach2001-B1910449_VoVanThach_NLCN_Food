@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStore } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import classNames from 'classnames/bind';
 
@@ -37,7 +39,7 @@ function Navbar() {
         <header className={cx('header')}>
             <div className={cx('trademark')}>
                 <Link to="/home" className={cx('logo')}>
-                    FOODStore
+                    <FontAwesomeIcon className={cx('icon-logo')} icon={faStore} /> FOODStore
                 </Link>
             </div>
             <div className={cx('info')}>
