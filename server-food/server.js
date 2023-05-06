@@ -5,7 +5,7 @@ const cors = require("cors");
 const authRoute = require("./Router/AuthRoute");
 const userRoute = require("./Router/UserRoute");
 const productRoute = require("./Router/ProductRoute");
-const oderRoute = require("./Router/OderRoute");
+const orderRoute = require("./Router/OrderRoute");
 const contactRoute = require("./Router/ContactRoute");
 const connectDb = require("./Services/ConnectDbService");
 
@@ -30,7 +30,7 @@ app.use("/auth/admin", userRoute);
 app.use("/auth/admin", productRoute);
 
 // Contact
-app.use("/auth/admin", oderRoute);
+app.use("/auth/admin", orderRoute);
 
 // Contact
 app.use("/auth/admin", contactRoute);

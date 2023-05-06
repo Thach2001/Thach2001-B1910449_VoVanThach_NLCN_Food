@@ -1,24 +1,24 @@
 const express = require("express");
 const router = express.Router();
-const oderController = require("../Controllers/OderController");
+const orderController = require("../Controllers/OrderController");
 const authMiddleware = require("../Middleware/AuthMiddleware");
 
 router.get(
-   "/oder",
+   "/order",
    [authMiddleware.isAuthentication],
-   oderController.getListOder
+   orderController.getListOrder
 );
 
 router.post(
-   "/oder/create",
+   "/order/create",
    [authMiddleware.isAuthentication],
-   oderController.postOder
+   orderController.postOrder
 );
 
 router.delete(
-   "/oder/delete/:oderId",
+   "/order/delete/:orderId",
    [authMiddleware.isAuthentication, authMiddleware.isAdmin],
-   oderController.deleteOder
+   orderController.deleteOrder
 );
 
 module.exports = router;

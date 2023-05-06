@@ -4,27 +4,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import classNames from 'classnames/bind';
-import styles from './Oder.module.scss';
+import styles from './Order.module.scss';
 
 import AdminLayout from '~/layouts/AdminLayout';
 
 const cx = classNames.bind(styles);
 
-function Oder() {
+function Order() {
     const dispatch = useDispatch();
-    const oders = useSelector(function (state) {
-        return state.oder;
+    const orders = useSelector(function (state) {
+        return state.order;
     });
 
     useEffect(() => {
-        async function getListOder() {
-            const response = await axios.get('auth/admin/oder');
+        async function getListOrder() {
+            const response = await axios.get('auth/admin/order');
             dispatch({
-                type: 'GET_ODER_LIST',
+                type: 'GET_ORDER_LIST',
                 payload: response.data,
             });
         }
-        getListOder();
+        getListOrder();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -40,24 +40,48 @@ function Oder() {
         setSearchTerm(e.target.value);
     };
 
-    const handleDeleteOder = async (oderId) => {
-        await axios.delete(`/auth/admin/oder/delete/${oderId}`);
+    const handleDeleteOrder = async (orderId) => {
+        await axios.delete(`/auth/admin/order/delete/${orderId}`);
         dispatch({
-            type: 'REMOVE_ODER',
-            payload: oderId,
+            type: 'REMOVE_ORDER',
+            payload: orderId,
         });
         alert(`Bạn đã hủy đơn hàng thành công`);
     };
 
-    const searchOders = () => {
-        return oders.filter(
-            (oder) =>
-                oder.username.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
-                oder.email.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
+    const searchOrders = () => {
+        return orders.filter(
+            (order) =>
+                order.username.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+                order.email.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         );
     };
 
-    const oderList = searchOders();
+    const orderList = searchOrders();
+
+    // pagination
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const articlesPerPage = 6;
+    const totalArticles = orderList.length;
+    const totalPages = Math.ceil(totalArticles / articlesPerPage);
+    const indexOfLastArticle = currentPage * articlesPerPage;
+    const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+    const currentArticles = orderList.slice(indexOfFirstArticle, indexOfLastArticle);
+
+    const pageItems = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pageItems.push(
+            <li key={i}>
+                <button
+                    className={i === currentPage ? cx('active') : ''}
+                    onClick={() => setCurrentPage(i)}
+                >
+                    {i}
+                </button>
+            </li>,
+        );
+    }
 
     return (
         <AdminLayout>
@@ -76,35 +100,45 @@ function Oder() {
                             </button>
                         </div>
                     </div>
-                    {oderList.length > 0 ? (
+                    {currentArticles.length > 0 ? (
                         <>
                             <div className={cx('report-body')}>
-                                {oderList.map((oder) => {
+                                {currentArticles.map((order) => {
                                     return (
-                                        <div className={cx('items')} key={oder._id}>
+                                        <div className={cx('items')} key={order._id}>
                                             <div className={cx('item')}>
                                                 <div className={cx('item-heading')}>
-                                                    <h3>{oder.username}</h3>
-                                                    <h3>{time(oder.createdAt)}</h3>
+                                                    <h3>{order.username}</h3>
+                                                    <h3>{time(order.createdAt)}</h3>
                                                 </div>
-                                                <h3>{oder.email}</h3>
-                                                <div className={cx('list-cart')}>
-                                                    <img
-                                                        src={oder.cart[0].image}
-                                                        alt={oder.cart[0].productname}
-                                                    />
-                                                    <p>{oder.cart[0].productname}</p>
-                                                    <p>
-                                                        {oder.cart[0].price
-                                                            .toString()
-                                                            .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
-                                                    </p>
-                                                    <p> x {oder.cart[0].quantity}</p>
+                                                <h3>{order.email}</h3>
+                                                <div className={cx('cart-container')}>
+                                                    {order.cart.map((item) => (
+                                                        <div
+                                                            key={item._id}
+                                                            className={cx('list-cart')}
+                                                        >
+                                                            <img
+                                                                src={item.image}
+                                                                alt={item.productname}
+                                                            />
+                                                            <p>{item.productname}</p>
+                                                            <p>
+                                                                {item.price
+                                                                    .toString()
+                                                                    .replace(
+                                                                        /\B(?=(\d{3})+(?!\d))/g,
+                                                                        '.',
+                                                                    )}
+                                                            </p>
+                                                            <p> x {item.quantity}</p>
+                                                        </div>
+                                                    ))}
                                                 </div>
                                                 <div className={cx('actions')}>
                                                     <h3>
                                                         Tổng:{' '}
-                                                        {oder.totalPrice
+                                                        {order.totalPrice
                                                             .toString()
                                                             .replace(
                                                                 /\B(?=(\d{3})+(?!\d))/g,
@@ -116,7 +150,7 @@ function Oder() {
                                                         <button
                                                             className={cx('delete-btn')}
                                                             onClick={() =>
-                                                                handleDeleteOder(oder._id)
+                                                                handleDeleteOrder(order._id)
                                                             }
                                                         >
                                                             <FontAwesomeIcon icon={faTrash} /> Hủy
@@ -132,6 +166,7 @@ function Oder() {
                                     );
                                 })}
                             </div>
+                            <ul className={cx('pagination')}>{pageItems}</ul>
                         </>
                     ) : (
                         <h3 className={cx('no-user')}>Không có kết quả tìm kiếm</h3>
@@ -142,4 +177,4 @@ function Oder() {
     );
 }
 
-export default Oder;
+export default Order;

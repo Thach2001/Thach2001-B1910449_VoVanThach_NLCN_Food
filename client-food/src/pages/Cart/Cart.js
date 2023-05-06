@@ -58,7 +58,7 @@ function Cart({ cartItems, onSetCartItems }) {
             totalPrice: totalPrice,
         };
 
-        const response = await axios.post('auth/admin/oder/create', {
+        const response = await axios.post('auth/admin/order/create', {
             data,
         });
 

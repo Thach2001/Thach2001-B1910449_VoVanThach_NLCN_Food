@@ -57,7 +57,7 @@ function Asidebar() {
                 </div>
                 <div className={cx('nav-option')}>
                     <h3 className={cx('content')}>
-                        <Link to="/admin/oder">
+                        <Link to="/admin/order">
                             <button className={cx('btn-icon')}>
                                 <FontAwesomeIcon icon={faShoppingCart} />
                             </button>

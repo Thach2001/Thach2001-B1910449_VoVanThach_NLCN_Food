@@ -13,7 +13,7 @@ import AdminProduct from '~/pages/Admin/Products';
 import CreateProduct from '~/pages/Admin/Products/CreateProduct';
 import UpdateProduct from '~/pages/Admin/Products/UpdateProduct';
 
-import AdminOder from '~/pages/Admin/Oder';
+import AdminOrder from '~/pages/Admin/Order/Order';
 
 import AdminContact from '~/pages/Admin/Contact';
 
@@ -39,8 +39,8 @@ const publicRoutes = [
     { path: '/admin/product/create', component: CreateProduct, layout: null },
     { path: '/admin/product/edit/:_id', component: UpdateProduct, layout: null },
 
-    // Carts
-    { path: '/admin/oder', component: AdminOder, layout: null },
+    // Oders
+    { path: '/admin/order', component: AdminOrder, layout: null },
 
     // Contact
     { path: '/admin/contact', component: AdminContact, layout: null },

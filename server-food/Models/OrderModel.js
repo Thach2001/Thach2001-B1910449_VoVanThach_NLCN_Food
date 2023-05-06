@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // Schema: mô tả hình dạng của documents
-const OderSchema = new mongoose.Schema(
+const OrderSchema = new mongoose.Schema(
    {
       username: String,
       email: {
@@ -15,6 +15,6 @@ const OderSchema = new mongoose.Schema(
 );
 
 // compiler
-const OderModel = mongoose.model("Oder", OderSchema);
+const OrderModel = mongoose.model("Order", OrderSchema);
 
-module.exports = OderModel;
+module.exports = OrderModel;

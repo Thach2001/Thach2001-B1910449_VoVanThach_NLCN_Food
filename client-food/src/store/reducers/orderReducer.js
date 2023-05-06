@@ -1,10 +1,10 @@
-const intialStateOder = [];
+const intialStateOrder = [];
 
-function oderReducer(state = intialStateOder, action) {
+function orderReducer(state = intialStateOrder, action) {
     switch (action.type) {
-        case 'GET_ODER_LIST':
+        case 'GET_ORDER_LIST':
             return [...action.payload];
-        case 'REMOVE_ODER':
+        case 'REMOVE_ORDER':
             const newState = state.filter(function (item) {
                 return item._id !== action.payload;
             });
@@ -14,4 +14,4 @@ function oderReducer(state = intialStateOder, action) {
     }
 }
 
-export default oderReducer;
+export default orderReducer;
