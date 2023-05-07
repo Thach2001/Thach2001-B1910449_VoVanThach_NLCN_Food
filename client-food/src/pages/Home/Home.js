@@ -12,9 +12,7 @@ const cx = classNames.bind(styles);
 
 function Home() {
     const dispatch = useDispatch();
-    const products = useSelector(function (state) {
-        return state.product;
-    });
+    const products = useSelector((state) => state.product);
 
     useEffect(() => {
         async function getListProduct() {
@@ -44,7 +42,8 @@ function Home() {
     const searchProducts = () => {
         return products.filter(
             (product) =>
-                product.productname.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+                (product.productname &&
+                    product.productname.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) ||
                 product.category.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
                 product.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         );

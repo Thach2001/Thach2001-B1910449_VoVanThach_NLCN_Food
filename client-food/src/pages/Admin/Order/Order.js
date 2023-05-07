@@ -49,6 +49,11 @@ function Order() {
         alert(`Bạn đã hủy đơn hàng thành công`);
     };
 
+    const handleConfirm = () => {
+        console.log('111');
+        alert('Bạn đã xác nhận đơn hàng');
+    };
+
     const searchOrders = () => {
         return orders.filter(
             (order) =>
@@ -155,7 +160,10 @@ function Order() {
                                                         >
                                                             <FontAwesomeIcon icon={faTrash} /> Hủy
                                                         </button>
-                                                        <button className={cx('check-btn')}>
+                                                        <button
+                                                            className={cx('check-btn')}
+                                                            onClick={handleConfirm}
+                                                        >
                                                             <FontAwesomeIcon icon={faCheck} /> Xác
                                                             nhận
                                                         </button>

@@ -177,7 +177,7 @@ function Cart({ cartItems, onSetCartItems }) {
                                 </span>
                             </p>
                             <button className={cx('checkout-btn')} onClick={handleCheckout}>
-                                Thanh toán
+                                Đặt hàng
                             </button>
                         </div>
                     </>

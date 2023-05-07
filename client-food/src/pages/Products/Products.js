@@ -30,6 +30,7 @@ function Products() {
     // add products to cart
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
+        alert(`Đã thêm ${product.productname.toUpperCase()} vào giỏ hàng`);
     };
 
     // search
@@ -42,7 +43,8 @@ function Products() {
     const searchProducts = () => {
         return products.filter(
             (product) =>
-                product.productname.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+                (product.productname &&
+                    product.productname.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) ||
                 product.category.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
                 product.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         );

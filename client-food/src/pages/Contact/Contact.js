@@ -35,6 +35,9 @@ function Contact() {
         });
         if (response.status === 200) {
             alert(`Cảm ơn ${fullname.toUpperCase()} đã liên hệ và góp ý`);
+            setFullName('');
+            setEmail('');
+            setFeedBack('');
         }
     };
 

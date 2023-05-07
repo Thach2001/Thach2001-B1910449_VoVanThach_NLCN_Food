@@ -56,7 +56,8 @@ function Products() {
     const searchProducts = () => {
         return products.filter(
             (product) =>
-                product.productname.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+                (product.productname &&
+                    product.productname.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) ||
                 product.category.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
                 product.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         );
@@ -97,7 +98,7 @@ function Products() {
                         <div className={cx('search')}>
                             <input
                                 type="search"
-                                placeholder="Tìm kiếm theo tên và mô tả..."
+                                placeholder="Tìm kiếm theo tên, loại và mô tả..."
                                 onChange={handleChangeSearchTerm}
                             />
                             <button className={cx('search-btn')}>
