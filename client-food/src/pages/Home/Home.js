@@ -93,8 +93,8 @@ function Home() {
                             {productList
                                 .filter((product) => product.category === 'Trái cây')
                                 .map((product) => (
-                                    <SwiperSlide>
-                                        <ul className={cx('product-box')} key={product._id}>
+                                    <SwiperSlide key={product._id}>
+                                        <ul className={cx('product-box')}>
                                             <li>
                                                 <img
                                                     src={product.image}
@@ -143,7 +143,7 @@ function Home() {
                             {productList
                                 .filter((product) => product.category === 'Rau củ')
                                 .map((product) => (
-                                    <SwiperSlide>
+                                    <SwiperSlide key={product._id}>
                                         <ul className={cx('product-box')} key={product._id}>
                                             <li>
                                                 <img
