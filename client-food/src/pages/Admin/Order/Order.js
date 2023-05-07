@@ -50,7 +50,6 @@ function Order() {
     };
 
     const handleConfirm = () => {
-        console.log('111');
         alert('Bạn đã xác nhận đơn hàng');
     };
 

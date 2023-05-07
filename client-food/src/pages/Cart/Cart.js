@@ -105,7 +105,7 @@ function Cart({ cartItems, onSetCartItems }) {
                     <>
                         <div className={cx('cart-header')}>
                             <button className={cx('continue-btn')}>
-                                <Link to="/home">
+                                <Link to="/products">
                                     <FontAwesomeIcon
                                         className={'icon-arrowleft'}
                                         icon={faArrowLeft}
