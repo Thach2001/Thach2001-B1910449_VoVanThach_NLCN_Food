@@ -8,6 +8,11 @@ import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
 import LandingPage from '~/components/LandingPage/LandingPage';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 const cx = classNames.bind(styles);
 
 function Home() {
@@ -71,61 +76,101 @@ function Home() {
                     </h1>
 
                     <div className={cx('products')}>
-                        {productList
-                            .filter((product) => product.category === 'Trái cây')
-                            .map((product) => (
-                                <ul className={cx('product-box')} key={product._id}>
-                                    <li>
-                                        <img src={product.image} alt={product.productname} />
-                                        <h3>{product.productname}</h3>
-                                        <div className={cx('price')}>
-                                            {product.price
-                                                .toString()
-                                                .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
-                                            vnđ/kg
-                                        </div>
-                                        <div className={cx('description')}>
-                                            {product.description}
-                                        </div>
-                                        <button
-                                            className={cx('cart-btn')}
-                                            onClick={() => handleAddToCart(product)}
-                                        >
-                                            Thêm vào giỏ hàng
-                                        </button>
-                                    </li>
-                                </ul>
-                            ))}
+                        <Swiper
+                            loop={true}
+                            slidesPerView={4}
+                            spaceBetween={5}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false,
+                            }}
+                            modules={[Pagination, Autoplay]}
+                            className={cx('mySwiper')}
+                        >
+                            {productList
+                                .filter((product) => product.category === 'Trái cây')
+                                .map((product) => (
+                                    <SwiperSlide>
+                                        <ul className={cx('product-box')} key={product._id}>
+                                            <li>
+                                                <img
+                                                    src={product.image}
+                                                    alt={product.productname}
+                                                />
+                                                <h3>{product.productname}</h3>
+                                                <div className={cx('price')}>
+                                                    {product.price
+                                                        .toString()
+                                                        .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
+                                                    vnđ/kg
+                                                </div>
+                                                <div className={cx('description')}>
+                                                    {product.description}
+                                                </div>
+                                                <button
+                                                    className={cx('cart-btn')}
+                                                    onClick={() => handleAddToCart(product)}
+                                                >
+                                                    Thêm vào giỏ hàng
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </SwiperSlide>
+                                ))}
+                        </Swiper>
                     </div>
                     <h1 className={cx('heading')}>
                         <span>Rau củ</span>
                     </h1>
                     <div className={cx('products')}>
-                        {productList
-                            .filter((product) => product.category === 'Rau củ')
-                            .map((product) => (
-                                <ul className={cx('product-box')} key={product._id}>
-                                    <li>
-                                        <img src={product.image} alt={product.productname} />
-                                        <h3>{product.productname}</h3>
-                                        <div className={cx('price')}>
-                                            {product.price
-                                                .toString()
-                                                .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
-                                            vnđ/kg
-                                        </div>
-                                        <div className={cx('description')}>
-                                            {product.description}
-                                        </div>
-                                        <button
-                                            className={cx('cart-btn')}
-                                            onClick={() => handleAddToCart(product)}
-                                        >
-                                            Thêm vào giỏ hàng
-                                        </button>
-                                    </li>
-                                </ul>
-                            ))}
+                        <Swiper
+                            loop={true}
+                            slidesPerView={4}
+                            spaceBetween={5}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            autoplay={{
+                                delay: 4000,
+                                disableOnInteraction: false,
+                            }}
+                            modules={[Pagination, Autoplay]}
+                            className={cx('mySwiper')}
+                        >
+                            {productList
+                                .filter((product) => product.category === 'Rau củ')
+                                .map((product) => (
+                                    <SwiperSlide>
+                                        <ul className={cx('product-box')} key={product._id}>
+                                            <li>
+                                                <img
+                                                    src={product.image}
+                                                    alt={product.productname}
+                                                />
+                                                <h3>{product.productname}</h3>
+                                                <div className={cx('price')}>
+                                                    {product.price
+                                                        .toString()
+                                                        .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
+                                                    vnđ/kg
+                                                </div>
+                                                <div className={cx('description')}>
+                                                    {product.description}
+                                                </div>
+                                                <button
+                                                    className={cx('cart-btn')}
+                                                    onClick={() => handleAddToCart(product)}
+                                                >
+                                                    Thêm vào giỏ hàng
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </SwiperSlide>
+                                ))}
+                        </Swiper>
                     </div>
                 </div>
             ) : (
