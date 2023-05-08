@@ -185,7 +185,7 @@ function Cart({ cartItems, onSetCartItems }) {
                     <div className={cx('no-cart')}>
                         <p>Không có sản phẩm trong giỏ hàng</p>
                         <button className={cx('add-product')}>
-                            <Link to="/home">Thêm sản phẩm</Link>
+                            <Link to="/products">Thêm sản phẩm</Link>
                         </button>
                     </div>
                 )}
