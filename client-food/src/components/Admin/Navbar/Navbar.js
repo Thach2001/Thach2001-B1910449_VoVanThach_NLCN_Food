@@ -7,6 +7,7 @@ import axios from 'axios';
 import classNames from 'classnames/bind';
 
 import styles from './Navbar.module.scss';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
@@ -43,13 +44,12 @@ function Navbar() {
                 </Link>
             </div>
             <div className={cx('info')}>
-                <button className={cx('role-name')}>
-                    <Link to="/admin">{authState.user.username}</Link>
-                </button>
+                <Button to="/admin/user" secondary>
+                    {authState.user.username}
+                </Button>
                 <div className={cx('avatar')}>
                     <img
                         src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-                        className={cx('img-avatar')}
                         alt="avatar"
                     />
                 </div>

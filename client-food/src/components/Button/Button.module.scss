@@ -1,0 +1,59 @@
+.wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: var(--font-family);
+	padding: 10px 15px;
+	color: var(--white);
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+
+    + .wrapper {
+        margin-left: 5px;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+.icon + .title, 
+.title + .icon {
+    margin-left: 5px;
+}
+
+// Button type
+.secondary {
+	background-color: #09914f;
+}
+
+.primary {
+    background-color: var(--primary);
+}
+
+.outline {
+    font-weight: normal;
+    border: 2px solid var(--black);
+    color: var(--black);
+
+    &:hover {
+        color: var(--white);
+        background-color: var(--orange);
+    }
+}
+
+// Button size
+.small {
+    font-size: 1.2rem;
+    padding: 5px;
+}
+
+.large {
+    font-size: 2rem;
+    padding: 8px 30px;
+}

@@ -13,6 +13,7 @@ import {
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import axios from 'axios';
+import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -78,9 +79,9 @@ function Header() {
                     </div>
 
                     {authState.user.role === 'admin' ? (
-                        <button className={cx('admin-btn')}>
-                            <Link to="/admin/user">{authState.user.username}</Link>
-                        </button>
+                        <Button className={cx('admin-btn')} to="/admin/user" secondary>
+                            {authState.user.username}
+                        </Button>
                     ) : (
                         <div
                             className={cx('action-btn')}

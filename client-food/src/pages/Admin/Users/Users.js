@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faPlus, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import cogoToast from 'cogo-toast';
 import classNames from 'classnames/bind';
 
 import styles from './Users.module.scss';
 import AdminLayout from '~/layouts/AdminLayout';
+import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -38,7 +39,7 @@ function Users() {
             type: 'REMOVE_USER',
             payload: idUser,
         });
-        alert(`Bạn đã xóa tài khoản thành công`);
+        cogoToast.success('Tài khoản đã được xóa', { position: 'top-right' });
     };
 
     const time = (timestamp) => {
@@ -103,11 +104,13 @@ function Users() {
                                 <FontAwesomeIcon icon={faSearch} />
                             </button>
                         </div>
-                        <button className={cx('create-btn')}>
-                            <Link to="/user/create">
-                                <FontAwesomeIcon icon={faPlus} /> Tạo
-                            </Link>
-                        </button>
+                        <Button
+                            to="/user/create"
+                            leftIcon={<FontAwesomeIcon icon={faPlus} />}
+                            secondary
+                        >
+                            Tạo
+                        </Button>
                     </div>
                     {currentArticles.length > 0 ? (
                         <>
@@ -146,17 +149,24 @@ function Users() {
                                                     {time(user.createdAt)}
                                                 </h3>
                                                 <h3 className={cx('item-content')}>
-                                                    <button className={cx('edit-btn', 'handle')}>
-                                                        <Link to={`/user/edit/${user._id}`}>
-                                                            <FontAwesomeIcon icon={faPen} /> Sửa
-                                                        </Link>
-                                                    </button>
-                                                    <button
-                                                        className={cx('delete-btn', 'handle')}
-                                                        onClick={() => handleDeleteUser(user._id)}
+                                                    <Button
+                                                        to={`/user/edit/${user._id}`}
+                                                        leftIcon={<FontAwesomeIcon icon={faPen} />}
+                                                        small
+                                                        secondary
                                                     >
-                                                        <FontAwesomeIcon icon={faTrash} /> Xóa
-                                                    </button>
+                                                        Sửa
+                                                    </Button>
+                                                    <Button
+                                                        onClick={() => handleDeleteUser(user._id)}
+                                                        leftIcon={
+                                                            <FontAwesomeIcon icon={faTrash} />
+                                                        }
+                                                        small
+                                                        primary
+                                                    >
+                                                        Xóa
+                                                    </Button>
                                                 </h3>
                                             </div>
                                         </div>

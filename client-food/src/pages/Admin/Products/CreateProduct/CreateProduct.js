@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollar, faImage, faLemon, faPen } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import cogoToast from 'cogo-toast';
 import classNames from 'classnames/bind';
 
 import styles from './CreateProduct.module.scss';
@@ -49,8 +50,10 @@ function CreateProduct() {
         });
 
         if (response.status === 200) {
-            alert(`Tạo sản phẩm ${productname.toUpperCase()} thành công`);
             navigate('/admin/product');
+            cogoToast.success(`Tạo sản phẩm ${productname.toUpperCase()} thành công`, {
+                position: 'top-right',
+            });
         }
     };
 

@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import cogoToast from 'cogo-toast';
 import classNames from 'classnames/bind';
 import styles from './Order.module.scss';
 
 import AdminLayout from '~/layouts/AdminLayout';
+import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -46,7 +48,9 @@ function Order() {
             type: 'REMOVE_ORDER',
             payload: orderId,
         });
-        alert(`Bạn đã hủy đơn hàng thành công`);
+        cogoToast.success('Đơn đặt hàng đã được huỷ', {
+            position: 'top-right',
+        });
     };
 
     const handleConfirm = () => {
@@ -151,21 +155,28 @@ function Order() {
                                                         vnđ
                                                     </h3>
                                                     <div>
-                                                        <button
-                                                            className={cx('delete-btn')}
+                                                        <Button
                                                             onClick={() =>
                                                                 handleDeleteOrder(order._id)
                                                             }
+                                                            leftIcon={
+                                                                <FontAwesomeIcon icon={faTrash} />
+                                                            }
+                                                            small
+                                                            primary
                                                         >
-                                                            <FontAwesomeIcon icon={faTrash} /> Hủy
-                                                        </button>
-                                                        <button
-                                                            className={cx('check-btn')}
+                                                            Hủy
+                                                        </Button>
+                                                        <Button
                                                             onClick={handleConfirm}
+                                                            leftIcon={
+                                                                <FontAwesomeIcon icon={faCheck} />
+                                                            }
+                                                            small
+                                                            secondary
                                                         >
-                                                            <FontAwesomeIcon icon={faCheck} /> Xác
-                                                            nhận
-                                                        </button>
+                                                            Xác nhận
+                                                        </Button>
                                                     </div>
                                                 </div>
                                             </div>

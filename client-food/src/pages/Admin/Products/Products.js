@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faPlus, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import cogoToast from 'cogo-toast';
 import classNames from 'classnames/bind';
 
 import styles from './Products.module.scss';
 import AdminLayout from '~/layouts/AdminLayout';
+import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -38,7 +39,7 @@ function Products() {
             type: 'REMOVE_PRODUCT',
             payload: ProductId,
         });
-        alert(`Bạn đã xóa sản phẩm thành công`);
+        cogoToast.success('Sản phẩm đã được xóa', { position: 'top-right' });
     };
 
     const time = (timestamp) => {
@@ -105,11 +106,13 @@ function Products() {
                                 <FontAwesomeIcon icon={faSearch} />
                             </button>
                         </div>
-                        <button className={cx('create-btn')}>
-                            <Link to="/admin/product/create">
-                                <FontAwesomeIcon icon={faPlus} /> Tạo
-                            </Link>
-                        </button>
+                        <Button
+                            to="/admin/product/create"
+                            leftIcon={<FontAwesomeIcon icon={faPlus} />}
+                            secondary
+                        >
+                            Tạo
+                        </Button>
                     </div>
                     {currentArticles.length > 0 ? (
                         <>
@@ -167,21 +170,26 @@ function Products() {
                                                     {time(product.createdAt)}
                                                 </h3>
                                                 <h3 className={cx('item-content')}>
-                                                    <button className={cx('edit-btn', 'handle')}>
-                                                        <Link
-                                                            to={`/admin/product/edit/${product._id}`}
-                                                        >
-                                                            <FontAwesomeIcon icon={faPen} /> Sửa
-                                                        </Link>
-                                                    </button>
-                                                    <button
-                                                        className={cx('delete-btn', 'handle')}
+                                                    <Button
+                                                        to={`/admin/product/edit/${product._id}`}
+                                                        leftIcon={<FontAwesomeIcon icon={faPen} />}
+                                                        small
+                                                        secondary
+                                                    >
+                                                        Sửa
+                                                    </Button>
+                                                    <Button
+                                                        leftIcon={
+                                                            <FontAwesomeIcon icon={faTrash} />
+                                                        }
                                                         onClick={() =>
                                                             handleDeleteProduct(product._id)
                                                         }
+                                                        small
+                                                        primary
                                                     >
-                                                        <FontAwesomeIcon icon={faTrash} /> Xóa
-                                                    </button>
+                                                        Xóa
+                                                    </Button>
                                                 </h3>
                                             </div>
                                         </div>

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import cogoToast from 'cogo-toast';
 import classNames from 'classnames/bind';
 
 import styles from './UpdateUser.module.scss';
@@ -42,6 +43,12 @@ function UpdateUser(props) {
             try {
                 await axios.put(`auth/admin/user/edit/${updateUser._id}`, updateUser);
                 navigate('/admin/user');
+                cogoToast.success(
+                    `Cập nhật tài khoản ${updateUser.username.toUpperCase()} thành công`,
+                    {
+                        position: 'top-right',
+                    },
+                );
             } catch (error) {
                 console.log(error);
             }

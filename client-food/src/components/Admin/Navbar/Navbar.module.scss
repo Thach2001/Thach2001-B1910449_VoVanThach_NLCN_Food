@@ -50,28 +50,15 @@
 	cursor: pointer;
 }
 
-.role-name {
-	font-size: 15px;
-	padding: 10px 15px;
-	margin-right: 10px;
-	background-color: #09914f;
-	border-radius: 8px;
-	border: none;
-	cursor: pointer;
-}
-
-.role-name a {
-	color: white;
-}
-
 .avatar {
 	height: 40px;
 	width: 40px;
+	margin-left: 5px;
 	background-color: #626262;
 	border-radius: 50%;
 	overflow: hidden;
 }
 
-.img-avatar {
+.avatar img {
 	height: 42px;
 }

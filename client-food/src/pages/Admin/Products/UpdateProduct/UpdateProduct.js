@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollar, faImage, faLemon, faPen } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import cogoToast from 'cogo-toast';
 import classNames from 'classnames/bind';
 
 import styles from './UpdateProduct.module.scss';
@@ -44,6 +45,12 @@ function UpdateProduct(props) {
             try {
                 await axios.put(`auth/admin/product/edit/${updateProduct._id}`, updateProduct);
                 navigate('/admin/product');
+                cogoToast.success(
+                    `Cập nhật sản phẩm ${updateProduct.productname.toUpperCase()} thành công`,
+                    {
+                        position: 'top-right',
+                    },
+                );
             } catch (error) {
                 console.log(error);
             }

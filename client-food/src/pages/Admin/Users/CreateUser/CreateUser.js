@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import cogoToast from 'cogo-toast';
 import classNames from 'classnames/bind';
 import styles from './CreateUser.module.scss';
 
@@ -42,8 +43,10 @@ function CreateUser() {
         });
 
         if (response.status === 200) {
-            alert(`Tạo tài khoản ${username.toUpperCase()} thành công`);
             navigate('/admin/user');
+            cogoToast.success(`Tạo tài khoản ${username.toUpperCase()} thành công`, {
+                position: 'top-right',
+            });
         }
     };
 

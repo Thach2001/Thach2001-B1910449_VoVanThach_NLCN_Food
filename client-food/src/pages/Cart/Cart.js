@@ -7,6 +7,7 @@ import { removeFromCart, adjustQuantity, setCartItems } from '../../actions/cart
 import axios from 'axios';
 import classNames from 'classnames/bind';
 import styles from './Cart.module.scss';
+import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -156,12 +157,14 @@ function Cart({ cartItems, onSetCartItems }) {
                                             vnđ
                                         </td>
                                         <td>
-                                            <button
-                                                className={cx('remove-btn')}
+                                            <Button
+                                                leftIcon={<FontAwesomeIcon icon={faTrash} />}
                                                 onClick={() => handleRemoveFromCart(item._id)}
+                                                small
+                                                primary
                                             >
-                                                <FontAwesomeIcon icon={faTrash} /> Xóa
-                                            </button>
+                                                Xóa
+                                            </Button>
                                         </td>
                                     </tr>
                                 ))}

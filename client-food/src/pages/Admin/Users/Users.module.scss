@@ -73,20 +73,6 @@
 	cursor: pointer;
 }
 
-.create-btn {
-	height: 35px;
-	font-size: 15px;
-	background-color: #5500cb;
-	border: none;
-	border-radius: 8px;
-	cursor: pointer;
-}
-
-.create-btn a {
-	color: #fff;
-	padding: 20px;
-}
-
 .report-body {
 	max-width: 1160px;
 	overflow-x: auto;
@@ -133,24 +119,6 @@
 .item-content-email,
 .item-content-createdAt {
 	flex: 2;
-}
-
-.handle,
-.handle a {
-	color: #fff;
-	padding: 5px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-}
-
-.edit-btn {
-	background-color: green;
-	margin-right: 5px;
-}
-
-.delete-btn {
-	background-color: red;
 }
 
 .no-user {

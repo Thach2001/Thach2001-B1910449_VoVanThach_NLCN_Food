@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './LandingPage.module.scss';
+import Button from '../Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -17,9 +17,9 @@ function LandingPage() {
                     hữu cơ, bao gồm sử dụng phân bón và thuốc trừ sâu tự nhiên để giúp bảo vệ và
                     phát triển cây trồng
                 </p>
-                <Link to="/products" className={cx('shop-btn')}>
-                    Mua ngay
-                </Link>
+                <Button className={cx('shop-btn')} to="/products" large outline>
+                    Mua ngay{' '}
+                </Button>
             </div>
         </div>
     );
